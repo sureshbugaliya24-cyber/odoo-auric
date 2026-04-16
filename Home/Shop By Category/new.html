@@ -410,7 +410,8 @@
 
   const cartState = {};
 
-  function bindProductEvents() {
+  
+function bindProductEvents() {
     document.querySelectorAll(".product-card").forEach((card) => {
         const priceEl = card.querySelector(".price");
         const addBtn = card.querySelector(".add-btn");
@@ -423,11 +424,12 @@
         let basePriceEl = card.querySelector(".base-price");
 
         let qty = 1;
-        // FIX: Yahan dataset.actualPrice use karna hai
+        // Logic to get initial prices and ID
         let unitPrice = Number(variantSelected.dataset.actualPrice || variantSelected.dataset.price);
         let listPrice = Number(variantSelected.dataset.listPrice);
         let productId = Number(variantSelected.dataset.productId);
 
+        // Function to update price display based on selected variant/qty
         function updatePrice() {
             priceEl.textContent = Math.round(unitPrice * qty);
             
@@ -445,19 +447,21 @@
             }
         }
 
-        variantSelected.onclick = () => {
+        // Toggle dropdown
+        variantSelected.onclick = (e) => {
+            e.stopPropagation(); // Prevents immediate closing by the document click listener
             variantOptions.style.display = variantOptions.style.display === "block" ? "none" : "block";
         };
 
+        // Handle variant selection
         variantOptions.querySelectorAll(".variant-option").forEach((opt) => {
             opt.onclick = () => {
-                // FIX: Click par bhi actualPrice check karna hai
                 unitPrice = Number(opt.dataset.actualPrice || opt.dataset.price);
                 listPrice = Number(opt.dataset.listPrice);
                 productId = Number(opt.dataset.productId);
                 
                 variantSelected.textContent = opt.textContent;
-                variantSelected.dataset.actualPrice = unitPrice; // Fix
+                variantSelected.dataset.actualPrice = unitPrice;
                 variantSelected.dataset.listPrice = listPrice;
                 variantSelected.dataset.productId = productId;
                 
@@ -468,15 +472,20 @@
             };
         });
 
-        // ... baki addBtn ka logic ekdum sahi hai aapka
+
+
+
+        // Add to Cart Logic
         addBtn.onclick = async () => {
             const originalText = "ADD";
             const darkBg = "#a86f24";
             const originalBg = "#d19a45";
+            
             addBtn.disabled = true;
-            addBtn.textContent = "Added!";
+            addBtn.textContent = "Adding...";
             addBtn.style.backgroundColor = darkBg;
             addBtn.style.cursor = "not-allowed";
+
             try {
                 const response = await fetch("/shop/cart/add", {
                     method: "POST",
@@ -490,32 +499,73 @@
                         },
                     }),
                 });
-                if (!response.ok) throw new Error("API failed");
-                const el = document.querySelector(".my_cart_quantity");
-                if (el) {
-                    const currentQty = Number(el.textContent || 0);
-                    updateCartIcon(currentQty + 1);
+
+                // Check HTTP status
+                if (!response.ok) throw new Error("Network error");
+
+                const data = await response.json();
+
+                // Check Odoo specific error
+                if (data.error) {
+                    console.error("Odoo Error:", data.error);
+                    throw new Error("Odoo failed to add product");
                 }
+
+                // Success notification
+                addBtn.textContent = "Added!";
+                
+                // --- CART COUNTER UPDATE FIX ---
+                const newQty = data.result.cart_quantity;
+                
+                // Odoo ke standard selectors aur custom selectors dono ko handle karne ke liye
+                const cartQtyElements = document.querySelectorAll(".my_cart_quantity, .cart_quantity");
+
+                if (cartQtyElements.length > 0) {
+                    cartQtyElements.forEach(el => {
+                        el.textContent = newQty;
+                        // Agar 0 quantity ki wajah se hidden hai, toh show karein
+                        el.classList.remove('d-none');
+                        el.style.display = 'inline-block'; 
+                    });
+                } 
+                
+                // Agar koi function-based trigger hai header update ke liye
+                if (typeof updateCartIcon === "function") {
+                    updateCartIcon(newQty);
+                }
+                // -------------------------------
+
                 setTimeout(() => {
                     addBtn.disabled = false;
                     addBtn.textContent = originalText;
                     addBtn.style.backgroundColor = originalBg;
                     addBtn.style.cursor = "pointer";
                 }, 2000);
+
             } catch (err) {
-                console.error(err);
-                alert("Failed to add product");
+                console.error("Cart Error:", err);
+                alert("Could not add product. Please try again.");
+                
                 addBtn.disabled = false;
                 addBtn.textContent = originalText;
                 addBtn.style.backgroundColor = originalBg;
+                addBtn.style.cursor = "pointer";
             }
         };
 
+        
+
+
+
+
+        // Close dropdown when clicking outside
         document.addEventListener("click", (e) => {
             if (!card.contains(e.target)) variantOptions.style.display = "none";
         });
     });
 }
+
+
 
   function renderStars(r) {
     let out = "";
