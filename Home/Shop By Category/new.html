@@ -290,9 +290,132 @@
   .strip-nav.right {
     right: 6px;
   }
+
+/* ========================================== popup =============================== */
+
+/* ================= CATEGORY POPUP STYLING ================= */
+#cat-cart-popup {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 380px;
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    z-index: 10001;
+    transform: translateX(150%);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-left: 6px solid #a86f24;
+    align-items: flex-start;
+}
+
+#cat-cart-popup.cat-show { transform: translateX(0); }
+
+.cat-pop-img-wrapper { flex-shrink: 0; position: relative; }
+
+#cat-pop-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+.cat-popup-details { 
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left;
+    min-width: 0;
+}
+
+.cat-pop-top-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+#cat-pop-title {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.cat-pop-price-display {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+#cat-pop-variant {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.cat-view-cart-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #a86f24;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    #cat-cart-popup {
+        width: auto;
+        top: auto;
+        bottom: 25px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(200%);
+    }
+    #cat-cart-popup.cat-show { transform: translateY(0); }
+}
+
+/* ========================================== popup End =============================== */
+
+
+
+
 </style>
 
 <img src="/custom_website/static/src/img/shop_by_category3.jpg" style="width: 100%; padding-top: 8px" loading="lazy">
+
+<!-- /* ========================================== popup =============================== */ -->
+
+<div id="cat-cart-popup">
+    <div class="cat-pop-img-wrapper">
+        <img id="cat-pop-img" src="" alt="product">
+    </div>
+    <div class="cat-popup-details">
+        <div class="cat-pop-top-row">
+            <h4 id="cat-pop-title">Product Name</h4>
+            <span class="cat-pop-price-display">₹<span id="cat-pop-price">0</span></span>
+        </div>
+        <p id="cat-pop-variant">1 Kg</p>
+        <a href="/shop/cart" class="cat-view-cart-btn">View cart</a>
+    </div>
+</div>
+
+<!-- /* ========================================== popup End =============================== */ -->
+
 
 <div class="top-picks">
   <div class="strip-nav left" id="prevBtn">‹</div>
@@ -476,11 +599,13 @@ function bindProductEvents() {
 
 
         // Add to Cart Logic
+        // Add to Cart Logic for Category Section
         addBtn.onclick = async () => {
             const originalText = "ADD";
             const darkBg = "#a86f24";
             const originalBg = "#d19a45";
             
+            // Purani functionality: Loading state
             addBtn.disabled = true;
             addBtn.textContent = "Adding...";
             addBtn.style.backgroundColor = darkBg;
@@ -511,30 +636,51 @@ function bindProductEvents() {
                     throw new Error("Odoo failed to add product");
                 }
 
-                // Success notification
+                // Success notification on button
                 addBtn.textContent = "Added!";
                 
-                // --- CART COUNTER UPDATE FIX ---
+                // --- NEW POPUP LOGIC (As per design) ---
+                const line = data.result.notification_info.lines[0];
+                if (line) {
+                    const catPop = document.getElementById("cat-cart-popup");
+                    
+                    // Product details update karein
+                    document.getElementById("cat-pop-img").src = line.image_url;
+                    document.getElementById("cat-pop-title").textContent = line.name;
+                    document.getElementById("cat-pop-price").textContent = Math.round(line.price_total);
+                    
+                    // Quantity Logic: Agar combination_name empty hai toh '1 Kg' dikhao
+                    const qtyText = line.combination_name && line.combination_name.trim() !== "" 
+                                    ? line.combination_name 
+                                    : "1 Kg";
+                    document.getElementById("cat-pop-variant").textContent = qtyText;
+
+                    // Popup show karein
+                    catPop.classList.add("cat-show");
+                    
+                    // 2.5 second baad hatayein
+                    setTimeout(() => {
+                        catPop.classList.remove("cat-show");
+                    }, 2500);
+                }
+
+                // --- CART COUNTER UPDATE (Old Functionality Kept Single dot) ---
                 const newQty = data.result.cart_quantity;
-                
-                // Odoo ke standard selectors aur custom selectors dono ko handle karne ke liye
                 const cartQtyElements = document.querySelectorAll(".my_cart_quantity, .cart_quantity");
 
                 if (cartQtyElements.length > 0) {
                     cartQtyElements.forEach(el => {
                         el.textContent = newQty;
-                        // Agar 0 quantity ki wajah se hidden hai, toh show karein
                         el.classList.remove('d-none');
                         el.style.display = 'inline-block'; 
                     });
                 } 
                 
-                // Agar koi function-based trigger hai header update ke liye
                 if (typeof updateCartIcon === "function") {
                     updateCartIcon(newQty);
                 }
-                // -------------------------------
 
+                // Button reset timer
                 setTimeout(() => {
                     addBtn.disabled = false;
                     addBtn.textContent = originalText;
@@ -546,6 +692,7 @@ function bindProductEvents() {
                 console.error("Cart Error:", err);
                 alert("Could not add product. Please try again.");
                 
+                // Reset button on error
                 addBtn.disabled = false;
                 addBtn.textContent = originalText;
                 addBtn.style.backgroundColor = originalBg;
