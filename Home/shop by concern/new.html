@@ -402,7 +402,8 @@ function bindCpProductEvents() {
         }
 
         // Dropdown toggle
-        cpVariantSelectEl.onclick = () => {
+        cpVariantSelectEl.onclick = (e) => {
+            e.stopPropagation(); // Yeh line zaroori hai
             options.style.display = options.style.display === "block" ? "none" : "block";
         };
 
@@ -455,13 +456,14 @@ function bindCpProductEvents() {
         }
 
         // Add to Cart Async Logic
+        // Add to Cart Async Logic (Updated & Fixed)
         cpAddBtnEl.onclick = async () => {
             const originalText = "ADD";
             const darkBg = "#a86f24"; 
             const originalBg = "#d19a45";
 
             cpAddBtnEl.disabled = true;
-            cpAddBtnEl.textContent = "Added!";
+            cpAddBtnEl.textContent = "Adding..."; // Pehle Adding... dikhayega
             cpAddBtnEl.style.backgroundColor = darkBg;
             cpAddBtnEl.style.cursor = "not-allowed";
 
@@ -479,12 +481,42 @@ function bindCpProductEvents() {
                     }),
                 });
 
-                if (!response.ok) throw new Error("Add to cart failed");
-                await response.json();
+                // Check HTTP level success
+                if (!response.ok) throw new Error("Network error");
 
-                const cartQtyEl = document.querySelector(".my_cart_quantity");
-                const currentCartQty = cartQtyEl ? Number(cartQtyEl.textContent || 0) : 0;
-                updateCpCartIcon(currentCartQty + 1);
+                // Parse response to check for Odoo errors
+                const data = await response.json();
+
+                // Agar Odoo ne error return kiya hai (e.g. session expired ya validation fail)
+                if (data.error) {
+                    console.error("Odoo Error:", data.error);
+                    throw new Error(data.error.data.message || "Odoo failed");
+                }
+
+                // SUCCESS: Button update
+                cpAddBtnEl.textContent = "Added!";
+                
+                // --- REAL-TIME CART UPDATE LOGIC ---
+                // API response se actual cart count uthana sabse best hai
+                const newCartQty = data.result.cart_quantity;
+                
+                // Odoo ke standard selectors ko target karein
+                const cartQtyEls = document.querySelectorAll(".my_cart_quantity, .cart_quantity");
+
+                if (cartQtyEls.length > 0) {
+                    cartQtyEls.forEach((el) => {
+                        el.textContent = newCartQty;
+                        // Agar cart pehle empty tha, toh badge ko show karein
+                        el.classList.remove("d-none");
+                        el.style.display = "inline-block";
+                    });
+                }
+                
+                // Agar aapka existing function window level par hai, toh usse trigger karein
+                if (typeof updateCpCartIcon === "function") {
+                    updateCpCartIcon(newCartQty);
+                }
+                // -----------------------------------
 
                 setTimeout(() => {
                     cpAddBtnEl.disabled = false;
@@ -494,13 +526,22 @@ function bindCpProductEvents() {
                 }, 2000);
 
             } catch (err) {
-                console.error(err);
-                alert("Failed to add product");
+                console.error("Cart Catch Error:", err);
+                // Sirf tab alert aayega jab sach mein koi error ho
+                alert("Could not add product. Please try again.");
+                
                 cpAddBtnEl.disabled = false;
                 cpAddBtnEl.textContent = originalText;
                 cpAddBtnEl.style.backgroundColor = originalBg;
+                cpAddBtnEl.style.cursor = "pointer";
             }
         };
+        
+
+
+
+
+
     });
 }
 
