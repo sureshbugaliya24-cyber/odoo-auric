@@ -248,9 +248,158 @@
     font-weight: 400;
     margin-left: 5px;
 }
+
+
+/* ============================ popup ================================= */
+
+/* CP Section Unique Popup Styling - New Layout */
+#cp-cart-popup {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 380px; /* Thoda wider stacked layout ke liye */
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    z-index: 10001;
+    transform: translateX(150%);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-left: 6px solid #a86f24;
+    align-items: flex-start;
+}
+
+#cp-cart-popup.cp-show { transform: translateX(0); }
+
+/* Image Wrapper */
+.cp-pop-img-wrapper {
+    flex-shrink: 0;
+}
+
+#cp-pop-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    background-color: #f9f9f9; /* Image missing fallback color */
+}
+
+/* Details stacked vertically */
+.cp-popup-details { 
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left Align all elements */
+    text-align: left;
+    min-width: 0;
+}
+
+/* Title and Price in top stacked row */
+.cp-pop-top-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 3px;
+}
+
+.cp-popup-details h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #333; /* Title darker for contrast */
+    font-weight: 600;
+    line-height: 1.2;
+    flex: 1;
+}
+
+/* Price Display (Like image_1.png style) */
+.cp-pop-price-display {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* Variant/Quantity style directly under Title row */
+#cp-pop-variant {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Full Width View Cart Button (image_1.png style) */
+.cp-view-cart-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #a86f24; /* Color from Concern Section */
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: 600;
+    box-sizing: border-box;
+    transition: background 0.2s;
+}
+
+.cp-view-cart-btn:hover {
+    background: #daa345;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    #cp-cart-popup {
+        width: auto;
+        top: auto;
+        bottom: 25px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(200%);
+    }
+    #cp-cart-popup.cp-show { transform: translateY(0); }
+}
+
+
+/* ============================ popup end ================================= */
+
+
+
+
+
 </style>
 
 <img src="/custom_website/static/src/img/shop_by_concern2.jpg" style="width: 100%; padding-top: 8px" loading="lazy">
+
+
+
+
+<!-- popup========================================================= -->
+
+<div id="cp-cart-popup">
+    <div class="cp-pop-img-wrapper">
+        <img id="cp-pop-img" src="" alt="product">
+    </div>
+    
+    <div class="cp-popup-details">
+        <div class="cp-pop-top-row">
+            <h4 id="cp-pop-title">Product Name</h4>
+            <span class="cp-pop-price-display">₹<span id="cp-pop-price">0</span></span>
+        </div>
+        <p id="cp-pop-variant">1 Kg</p>
+        <a href="/shop/cart" class="cp-view-cart-btn">View cart</a>
+    </div>
+</div>
+
+
+
+<!-- popup end ================================================ -->
 
 <div class="cp-wrapper">
   <div class="cpstrip-nav left" id="cpprevBtn">‹</div>
@@ -457,85 +606,122 @@ function bindCpProductEvents() {
 
         // Add to Cart Async Logic
         // Add to Cart Async Logic (Updated & Fixed)
-        cpAddBtnEl.onclick = async () => {
-            const originalText = "ADD";
-            const darkBg = "#a86f24"; 
-            const originalBg = "#d19a45";
 
-            cpAddBtnEl.disabled = true;
-            cpAddBtnEl.textContent = "Adding..."; // Pehle Adding... dikhayega
-            cpAddBtnEl.style.backgroundColor = darkBg;
-            cpAddBtnEl.style.cursor = "not-allowed";
 
-            try {
-                const response = await fetch("/shop/cart/add", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "same-origin",
-                    body: JSON.stringify({
-                        params: {
-                            product_template_id: Number(cpCardEl.dataset.productTemplateId),
-                            product_id: currentProductId,
-                            add_qty: 1,
-                        },
-                    }),
-                });
 
-                // Check HTTP level success
-                if (!response.ok) throw new Error("Network error");
+        // Add to Cart Logic for Concern Section (CP)
+cpAddBtnEl.onclick = async () => {
+    const originalText = "ADD";
+    const darkBg = "#a86f24"; 
+    const originalBg = "#d19a45";
 
-                // Parse response to check for Odoo errors
-                const data = await response.json();
+    // 1. Initial State: Button ko disable karein aur loading state dikhayein
+    cpAddBtnEl.disabled = true;
+    cpAddBtnEl.textContent = "Adding..."; 
+    cpAddBtnEl.style.backgroundColor = darkBg;
+    cpAddBtnEl.style.cursor = "not-allowed";
 
-                // Agar Odoo ne error return kiya hai (e.g. session expired ya validation fail)
-                if (data.error) {
-                    console.error("Odoo Error:", data.error);
-                    throw new Error(data.error.data.message || "Odoo failed");
-                }
+    try {
+        const response = await fetch("/shop/cart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                params: {
+                    product_template_id: Number(cpCardEl.dataset.productTemplateId),
+                    product_id: currentProductId,
+                    add_qty: 1,
+                },
+            }),
+        });
 
-                // SUCCESS: Button update
-                cpAddBtnEl.textContent = "Added!";
-                
-                // --- REAL-TIME CART UPDATE LOGIC ---
-                // API response se actual cart count uthana sabse best hai
-                const newCartQty = data.result.cart_quantity;
-                
-                // Odoo ke standard selectors ko target karein
-                const cartQtyEls = document.querySelectorAll(".my_cart_quantity, .cart_quantity");
+        // HTTP level check
+        if (!response.ok) throw new Error("Network error");
 
-                if (cartQtyEls.length > 0) {
-                    cartQtyEls.forEach((el) => {
-                        el.textContent = newCartQty;
-                        // Agar cart pehle empty tha, toh badge ko show karein
-                        el.classList.remove("d-none");
-                        el.style.display = "inline-block";
-                    });
-                }
-                
-                // Agar aapka existing function window level par hai, toh usse trigger karein
-                if (typeof updateCpCartIcon === "function") {
-                    updateCpCartIcon(newCartQty);
-                }
-                // -----------------------------------
+        const data = await response.json();
 
-                setTimeout(() => {
-                    cpAddBtnEl.disabled = false;
-                    cpAddBtnEl.textContent = originalText;
-                    cpAddBtnEl.style.backgroundColor = originalBg;
-                    cpAddBtnEl.style.cursor = "pointer";
-                }, 2000);
+        // 2. Odoo Logic Error Check (e.g., Out of stock or Session issues)
+        if (data.error) {
+            console.error("Odoo Error:", data.error);
+            throw new Error(data.error.data.message || "Odoo failed");
+        }
 
-            } catch (err) {
-                console.error("Cart Catch Error:", err);
-                // Sirf tab alert aayega jab sach mein koi error ho
-                alert("Could not add product. Please try again.");
-                
-                cpAddBtnEl.disabled = false;
-                cpAddBtnEl.textContent = originalText;
-                cpAddBtnEl.style.backgroundColor = originalBg;
-                cpAddBtnEl.style.cursor = "pointer";
-            }
-        };
+        // 3. SUCCESS: Button update
+        cpAddBtnEl.textContent = "Added!";
+        
+        // --- CP POPUP TRIGGER LOGIC ---
+        // API response se notification_info ke andar ka product data nikalna
+        // ... SUCCESS block ke andar ...
+        const line = data.result.notification_info.lines[0];
+        if (line) {
+            const cpPop = document.getElementById("cp-cart-popup");
+            
+            // Set Product Image
+            document.getElementById("cp-pop-img").src = line.image_url;
+            
+            // Set Title
+            document.getElementById("cp-pop-title").textContent = line.name;
+            
+            // --- VARIANT/QUANTITY LOGIC ---
+            // API response se 'combination_name' (jaise 1 Kg / 5 Kg) lo.
+            // Agar empty mile, toh default '1 Kg' dikhao.
+            const qtyText = line.combination_name && line.combination_name.trim() !== "" 
+                            ? line.combination_name 
+                            : "1 Kg";
+                            
+            document.getElementById("cp-pop-variant").textContent = qtyText;
+            // ------------------------------
+            
+            // Set Price
+            document.getElementById("cp-pop-price").textContent = Math.round(line.price_total);
+
+            // Show Popup
+            cpPop.classList.add("cp-show");
+            
+            setTimeout(() => {
+                cpPop.classList.remove("cp-show");
+            }, 2500);
+        }
+        
+
+        // --- REAL-TIME CART UPDATE LOGIC ---
+        // Header cart icon ka count update karna server response ke hisaab se
+        const newCartQty = data.result.cart_quantity;
+        const cartQtyEls = document.querySelectorAll(".my_cart_quantity, .cart_quantity");
+
+        if (cartQtyEls.length > 0) {
+            cartQtyEls.forEach((el) => {
+                el.textContent = newCartQty;
+                // Agar cart 0 tha toh d-none remove karke badge show karna
+                el.classList.remove("d-none");
+                el.style.display = "inline-block";
+            });
+        }
+        
+        // Agar theme ka core function available ho toh trigger karein
+        if (typeof updateCpCartIcon === "function") {
+            updateCpCartIcon(newCartQty);
+        }
+
+        // 2 second baad button ko wapas purani state mein lana
+        setTimeout(() => {
+            cpAddBtnEl.disabled = false;
+            cpAddBtnEl.textContent = originalText;
+            cpAddBtnEl.style.backgroundColor = originalBg;
+            cpAddBtnEl.style.cursor = "pointer";
+        }, 2000);
+
+    } catch (err) {
+        console.error("CP Cart Error:", err);
+        // Error hone par user ko inform karna aur button reset karna
+        alert("Product add nahi ho saka. Kripya refresh karke try karein.");
+        
+        cpAddBtnEl.disabled = false;
+        cpAddBtnEl.textContent = originalText;
+        cpAddBtnEl.style.backgroundColor = originalBg;
+        cpAddBtnEl.style.cursor = "pointer";
+    }
+};
         
 
 
