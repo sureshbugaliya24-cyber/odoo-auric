@@ -398,11 +398,11 @@
 
 <img src="/custom_website/static/src/img/shop_by_category3.jpg" style="width: 100%; padding-top: 8px" loading="lazy">
 
-<!-- /* ========================================== popup =============================== */ -->
+
 
 <div id="cat-cart-popup">
     <div class="cat-pop-img-wrapper">
-        <img id="cat-pop-img" src="" alt="product">
+        <img id="cat-pop-img" src="" alt="product" loading="lazy">
     </div>
     <div class="cat-popup-details">
         <div class="cat-pop-top-row">
@@ -414,7 +414,7 @@
     </div>
 </div>
 
-<!-- /* ========================================== popup End =============================== */ -->
+
 
 
 <div class="top-picks">
@@ -640,16 +640,20 @@ function bindProductEvents() {
                 addBtn.textContent = "Added!";
                 
                 // --- NEW POPUP LOGIC (As per design) ---
+                // --- NEW POPUP LOGIC (Fixed for Discounted Price) ---
                 const line = data.result.notification_info.lines[0];
                 if (line) {
                     const catPop = document.getElementById("cat-cart-popup");
                     
-                    // Product details update karein
+                    // 1. Image aur Title update karein
                     document.getElementById("cat-pop-img").src = line.image_url;
                     document.getElementById("cat-pop-title").textContent = line.name;
-                    document.getElementById("cat-pop-price").textContent = Math.round(line.price_total);
                     
-                    // Quantity Logic: Agar combination_name empty hai toh '1 Kg' dikhao
+                    // 2. PRICE FIX: Card ke price ke according fixed
+                    // Hum local unitPrice variable use kar rahe hain jo variant change hone par update hota hai
+                    document.getElementById("cat-pop-price").textContent = Math.round(unitPrice * qty);
+                    
+                    // 3. Quantity Logic
                     const qtyText = line.combination_name && line.combination_name.trim() !== "" 
                                     ? line.combination_name 
                                     : "1 Kg";
@@ -658,7 +662,6 @@ function bindProductEvents() {
                     // Popup show karein
                     catPop.classList.add("cat-show");
                     
-                    // 2.5 second baad hatayein
                     setTimeout(() => {
                         catPop.classList.remove("cat-show");
                     }, 2500);
