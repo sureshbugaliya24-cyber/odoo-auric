@@ -610,6 +610,8 @@ function bindCpProductEvents() {
 
 
         // Add to Cart Logic for Concern Section (CP)
+
+        // Add to Cart Logic for Concern Section (CP)
 cpAddBtnEl.onclick = async () => {
     const originalText = "ADD";
     const darkBg = "#a86f24"; 
@@ -672,8 +674,9 @@ cpAddBtnEl.onclick = async () => {
             document.getElementById("cp-pop-variant").textContent = qtyText;
             // ------------------------------
             
-            // Set Price
-            document.getElementById("cp-pop-price").textContent = Math.round(line.price_total);
+            // --- PRICE FIX: Card ke price ke according (Matches Exactly) ---
+            // Yahan hum local 'unitPrice' variable use kar rahe hain jo discounted price handle karta hai
+            document.getElementById("cp-pop-price").textContent = Math.round(unitPrice * qty);
 
             // Show Popup
             cpPop.classList.add("cp-show");
@@ -722,7 +725,6 @@ cpAddBtnEl.onclick = async () => {
         cpAddBtnEl.style.cursor = "pointer";
     }
 };
-        
 
 
 
