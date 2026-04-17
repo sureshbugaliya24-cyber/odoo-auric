@@ -1,0 +1,4506 @@
+<t name="Homepage" t-name="custom_website.website_homepage">
+    <t t-call="website.layout" pageName.f="homepage">
+        <div id="wrap" class="oe_structure oe_empty"><section class="s_embed_code o_colored_level pt0 pb0 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(255, 255, 255);">
+        <template class="s_embed_code_saved"><style>
+  /* Base Style (Mobile First approach is more reliable) */
+  .odoo-video-fullwidth {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0!important;
+  }
+
+  /* Mobile: 0px to 767px */
+  @media (max-width: 767px) {
+    .odoo-video-fullwidth {
+      height: 50vh;
+    }
+  }
+
+  /* Tablet: 768px to 991px */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .odoo-video-fullwidth {
+      height: 70vh;
+    }
+  }
+
+  /* Desktop: 992px and up */
+  @media (min-width: 992px) {
+    .odoo-video-fullwidth {
+      height: 100vh;
+    }
+  }
+
+  /* --- Video Logic --- */
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none; /* Prevents users from clicking/pausing video */
+  }
+
+  /* Dark Overlay */
+  .odoo-video-fullwidth::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+</style>
+
+<div class="odoo-video-fullwidth">
+  <video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="bg-video">
+    <source src="https://auricmills.com/custom_website/static/src/video/sample.mp4" type="video/mp4">
+  </source></video>
+</div></template>
+        <div class="s_embed_code_embedded o_not_editable container-fluid"><style>
+  /* Base Style (Mobile First approach is more reliable) */
+  .odoo-video-fullwidth {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0!important;
+  }
+
+  /* Mobile: 0px to 767px */
+  @media (max-width: 767px) {
+    .odoo-video-fullwidth {
+      height: 50vh;
+    }
+  }
+
+  /* Tablet: 768px to 991px */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .odoo-video-fullwidth {
+      height: 70vh;
+    }
+  }
+
+  /* Desktop: 992px and up */
+  @media (min-width: 992px) {
+    .odoo-video-fullwidth {
+      height: 100vh;
+    }
+  }
+
+  /* --- Video Logic --- */
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none; /* Prevents users from clicking/pausing video */
+  }
+
+  /* Dark Overlay */
+  .odoo-video-fullwidth::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+</style><div class="odoo-video-fullwidth">
+  <video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="bg-video">
+    <source src="https://auricmills.com/custom_website/static/src/video/sample.mp4" type="video/mp4">
+  </source></video>
+</div></div>
+    </section><section class="s_embed_code o_colored_level pt0 pb0 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  /* Parent container */
+  .category-strip {
+    background: #ffffff;
+    padding: 8px 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* Scroll / grid wrapper */
+  .category-scroll {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Individual item */
+  .category-item {
+    flex: 0 0 auto;
+    text-align: center;
+    text-decoration: none;
+    color: #474747;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Icon image */
+  .category-item img {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  /* Label */
+  .category-label {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Hover effect (desktop only) */
+  @media (hover: hover) {
+    .category-item:hover img {
+      transform: translateY(-4px);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  /* ================= MOBILE ================= */
+  @media (max-width: 768px) {
+    .category-scroll {
+      justify-content: flex-start;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 0 16px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .category-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-item img {
+      width: 65px;
+    }
+
+    .category-label {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<div class="category-strip">
+  <div class="category-scroll">
+    <a href="/shop" class="category-item">
+      <img src="/custom_website/static/src/img/shop_all.png" alt="Shop All" loading="lazy"/>
+      <div class="category-label">Shop All</div>
+    </a>
+
+    <a href="/quick-buy" class="category-item">
+      <img src="/custom_website/static/src/img/shop_all.png" alt="Quick Buy" loading="lazy"/>
+      <div class="category-label">Quick Buy</div>
+    </a>
+
+    <a href="/auric-circle" class="category-item">
+      <img src="/custom_website/static/src/img/membership.png" alt="Membership" loading="lazy"/>
+      <div class="category-label">Membership</div>
+    </a>
+
+    <a href="/coming-soon" class="category-item">
+      <img src="/custom_website/static/src/img/watch it live.png" alt="Watch it Live" loading="lazy"/>
+      <div class="category-label">Watch it Live</div>
+    </a>
+
+    <a href="/connect-us" class="category-item">
+      <img src="/custom_website/static/src/img/connection.png" alt="Connect" loading="lazy"/>
+      <div class="category-label">Connect</div>
+    </a>
+
+    <a href="/nutrition-expert" class="category-item">
+      <img src="/custom_website/static/src/img/nutrition expert.png" alt="Nutrition Expert" loading="lazy"/>
+      <div class="category-label">Nutrition Expert</div>
+    </a>
+
+    <a href="/coming-soon" class="category-item">
+      <img src="/custom_website/static/src/img/gifting.png" alt="Gifting" loading="lazy"/>
+      <div class="category-label">Gifting</div>
+    </a>
+
+    <a href="/our-story" class="category-item">
+      <img src="/custom_website/static/src/img/our story.png" alt="Our Story" loading="lazy"/>
+      <div class="category-label">Our Story</div>
+    </a>
+  </div>
+</div>
+
+<script>
+  // Reserved for future enhancements:
+  // - click tracking
+  // - swipe analytics
+  // - dynamic categories
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container-fluid"><style>
+  /* Parent container */
+  .category-strip {
+    background: #ffffff;
+    padding: 8px 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* Scroll / grid wrapper */
+  .category-scroll {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Individual item */
+  .category-item {
+    flex: 0 0 auto;
+    text-align: center;
+    text-decoration: none;
+    color: #474747;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Icon image */
+  .category-item img {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  /* Label */
+  .category-label {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Hover effect (desktop only) */
+  @media (hover: hover) {
+    .category-item:hover img {
+      transform: translateY(-4px);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  /* ================= MOBILE ================= */
+  @media (max-width: 768px) {
+    .category-scroll {
+      justify-content: flex-start;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 0 16px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .category-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-item img {
+      width: 65px;
+    }
+
+    .category-label {
+      font-size: 12px;
+    }
+  }
+</style><div class="category-strip">
+  <div class="category-scroll">
+    <a href="/shop" class="category-item">
+      <img src="/custom_website/static/src/img/shop_all.png" alt="Shop All" loading="lazy"/>
+      <div class="category-label">Shop All</div>
+    </a>
+
+    <a href="/quick-buy" class="category-item">
+      <img src="/custom_website/static/src/img/shop_all.png" alt="Quick Buy" loading="lazy"/>
+      <div class="category-label">Quick Buy</div>
+    </a>
+
+    <a href="/auric-circle" class="category-item">
+      <img src="/custom_website/static/src/img/membership.png" alt="Membership" loading="lazy"/>
+      <div class="category-label">Membership</div>
+    </a>
+
+    <a href="/coming-soon" class="category-item">
+      <img src="/custom_website/static/src/img/watch it live.png" alt="Watch it Live" loading="lazy"/>
+      <div class="category-label">Watch it Live</div>
+    </a>
+
+    <a href="/connect-us" class="category-item">
+      <img src="/custom_website/static/src/img/connection.png" alt="Connect" loading="lazy"/>
+      <div class="category-label">Connect</div>
+    </a>
+
+    <a href="/nutrition-expert" class="category-item">
+      <img src="/custom_website/static/src/img/nutrition expert.png" alt="Nutrition Expert" loading="lazy"/>
+      <div class="category-label">Nutrition Expert</div>
+    </a>
+
+    <a href="/coming-soon" class="category-item">
+      <img src="/custom_website/static/src/img/gifting.png" alt="Gifting" loading="lazy"/>
+      <div class="category-label">Gifting</div>
+    </a>
+
+    <a href="/our-story" class="category-item">
+      <img src="/custom_website/static/src/img/our story.png" alt="Our Story" loading="lazy"/>
+      <div class="category-label">Our Story</div>
+    </a>
+  </div>
+</div><script>
+  // Reserved for future enhancements:
+  // - click tracking
+  // - swipe analytics
+  // - dynamic categories
+</script></div>
+    </section><section class="s_carousel_intro_wrapper p-0 d-lg-none o_snippet_desktop_invisible" data-snippet="s_carousel_intro" data-name="Carousel Intro" data-invisible="1">
+        <div class="s_carousel_intro carousel slide o_colored_level s_carousel_arrows_hidden pointer-event carousel-dark" data-bs-interval="6000" id="myCarousel1768214162955" data-bs-ride="carousel" style="background-color: rgb(249, 250, 251);">
+            
+            <div class="carousel-inner"><div class="s_carousel_intro_item carousel-item o_cc o_cc1 px-0 o_colored_level pb0 pt24 active" data-name="Slide">
+                    <div class="container">
+                        <div class="row o_grid_mode" data-row-count="8">
+                            
+                            
+                            <div class="o_grid_item o_grid_item_image g-height-4 g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 3; grid-area: 5 / 7 / 9 / 13;" data-name="Block">
+                                <a href="/shop/khapli-emmer-whole-wheat-flour-36"><img src="/web/image/5344-d905b78c/auric%20millbannermobile.jpg.webp" alt="" data-attachment-id="5342" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-format-mimetype="image/webp" data-original-id="5342" data-original-src="/web/image/5342-7ff9a521/auric%20millbannermobile.jpg.jpg" data-mimetype-before-conversion="image/jpeg" data-resize-width="690" data-mimetype="image/webp"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="s_carousel_intro_item carousel-item o_cc o_cc1 px-0 pb0 pt24 o_colored_level" data-name="Slide" style="min-height: 200px;">
+                    <div class="container">
+                        <div class="row o_grid_mode" data-row-count="8">
+                            
+                            
+                            <div class="o_grid_item o_grid_item_image g-height-4 g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 3; grid-area: 5 / 7 / 9 / 13;" data-name="Block">
+                                <a href="/shop/khapli-emmer-whole-wheat-flour-36"><img src="/web/image/3674-aa343ea0/image%20%282%29.webp" alt="" data-attachment-id="3673" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-format-mimetype="image/webp" data-original-id="3673" data-original-src="/web/image/3673-69f74a32/image%20%282%29.png" data-mimetype-before-conversion="image/png" data-resize-width="690" data-mimetype="image/webp"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="s_carousel_intro_item carousel-item o_cc o_cc1 px-0 pt0 pb0 o_colored_level" data-name="Slide">
+                    <div class="container-fluid">
+                        <div class="row o_grid_mode" data-row-count="8">
+                            
+                            
+                            <div class="o_grid_item o_grid_item_image g-height-4 g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 3; grid-area: 5 / 7 / 9 / 13;" data-name="Block">
+                                <a href="/our-story"><img src="/web/image/2581-5a24f583/2.webp" alt="" data-attachment-id="2579" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-format-mimetype="image/webp" data-original-id="2579" data-original-src="/web/image/2579-66db2833/2.jpeg" data-mimetype-before-conversion="image/jpeg" data-resize-width="690" data-mimetype="image/webp"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="s_carousel_intro_item carousel-item o_cc o_cc1 px-0 pt0 pb0 o_colored_level" data-name="Slide">
+                    <div class="container">
+                        <div class="row o_grid_mode" data-row-count="8">
+                            
+                            
+                            <div class="o_grid_item o_grid_item_image g-height-4 g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 3; grid-area: 5 / 7 / 9 / 13;" data-name="Block">
+                                <img src="/web/image/2605-30d30ec1/3.webp" alt="" data-attachment-id="2604" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-format-mimetype="image/webp" data-original-id="2604" data-original-src="/web/image/2604-a81b3d1c/3.jpeg" data-mimetype-before-conversion="image/jpeg" data-resize-width="690" data-mimetype="image/webp"/>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="o_horizontal_controllers container position-absolute start-50 bottom-0 translate-middle-x w-100 mb-md-4 o_not_editable">
+                <div class="o_horizontal_controllers_row row gap-3 gap-lg-5 justify-content-between flex-nowrap flex-row-reverse mx-0">
+                    
+                    <div class="o_arrows_wrapper gap-2 w-auto p-0 o_colored_level">
+                        <button class="carousel-control-prev o_not_editable o_we_no_overlay" aria-label="Previous" title="Previous" data-bs-target="#myCarousel1768214162955">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"/>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next o_not_editable o_we_no_overlay" aria-label="Next" title="Next" data-bs-target="#myCarousel1768214162955">
+                            <span class="carousel-control-next-icon" aria-hidden="true"/>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                    <div class="carousel-indicators align-items-center flex-shrink-1 w-auto o_colored_level s_carousel_indicators_dots o_we_no_overlay">
+                        <button type="button" class="active" aria-label="Carousel indicator" data-bs-target="#myCarousel1768214162955" data-bs-slide-to="0" aria-current="true"/>
+                        
+                        
+                    <button data-bs-target="#myCarousel1768214162955" aria-label="Carousel indicator" data-bs-slide-to="1"/><button data-bs-target="#myCarousel1768214162955" aria-label="Carousel indicator" data-bs-slide-to="2"/><button data-bs-target="#myCarousel1768214162955" aria-label="Carousel indicator" data-bs-slide-to="3"/></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+<section class="s_embed_code o_colored_level pt0 pb0 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  .floating-story-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #C1812b 0%, #a46e25 100%);
+    color: #ffffff !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(193, 129, 43, 0.3);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 9999;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Subtle Shimmer Effect to catch the eye */
+  .floating-story-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: all 0.6s;
+  }
+
+  .floating-story-btn:hover::before {
+    left: 100%;
+  }
+
+  .floating-story-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(193, 129, 43, 0.4);
+    color: #ffffff !important;
+  }
+
+  .floating-story-btn:active {
+    transform: translateY(-2px);
+  }
+
+  /* Icon Animation */
+  .floating-story-btn i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .floating-story-btn:hover i {
+    transform: translateY(2px);
+  }
+
+  /* Responsive adjustment for mobile */
+  @media (max-width: 768px) {
+    .floating-story-btn {
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<a href="https://auricmills.com/auric-granth" class="floating-story-btn">
+  <i class="fa fa-download"/>
+  <span>Download Our Story</span>
+</a></template>
+        <div class="s_embed_code_embedded o_not_editable container"><style>
+  .floating-story-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #C1812b 0%, #a46e25 100%);
+    color: #ffffff !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(193, 129, 43, 0.3);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 9999;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Subtle Shimmer Effect to catch the eye */
+  .floating-story-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: all 0.6s;
+  }
+
+  .floating-story-btn:hover::before {
+    left: 100%;
+  }
+
+  .floating-story-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(193, 129, 43, 0.4);
+    color: #ffffff !important;
+  }
+
+  .floating-story-btn:active {
+    transform: translateY(-2px);
+  }
+
+  /* Icon Animation */
+  .floating-story-btn i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .floating-story-btn:hover i {
+    transform: translateY(2px);
+  }
+
+  /* Responsive adjustment for mobile */
+  @media (max-width: 768px) {
+    .floating-story-btn {
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+  }
+</style><a href="https://auricmills.com/auric-granth" class="floating-story-btn">
+  <i class="fa fa-download"/>
+  <span>Download Our Story</span>
+</a></div>
+    </section>
+    
+    
+    
+    
+    <section class="s_embed_code pt16 pb16 o_colored_level o_cc o_cc1 d-none o_snippet_mobile_invisible d-lg-block text-center" data-snippet="s_embed_code" data-name="Embed Code" data-invisible="1">
+        <template class="s_embed_code_saved"><style>
+
+/* Remove extra padding from embed section */
+.s_embed_code_embedded.o_not_editable.container-fluid{
+    padding:0 !important;
+}
+
+/* Carousel wrapper */
+.custom-carousel{
+    width:100%;
+}
+
+/* Aspect ratio container */
+.carousel-item{
+    aspect-ratio:15/8;
+    width:100%;
+}
+
+/* Image styling */
+.carousel-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* Indicators bottom-right */
+.carousel-indicators{
+    justify-content:flex-end;
+    margin-right:20px;
+    margin-left:auto;
+    bottom:10px;
+}
+
+.carousel-indicators [data-bs-target]{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background-color: black;
+}
+
+</style>
+
+
+<div id="shopCarousel" class="carousel slide custom-carousel" data-bs-interval="8000" data-bs-ride="carousel">
+
+    
+    <div class="carousel-indicators" id="carouselDots"/>
+
+    
+    <div class="carousel-inner" id="carouselSlides"/>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#shopCarousel" data-bs-slide="prev">
+      
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#shopCarousel" data-bs-slide="next">
+       
+    </button>
+
+</div>
+
+
+<script>
+
+const images = [
+"https://auricmills.com/web/image/5339-b07f7f55/auric%20millbanner.jpg",
+"https://auricmills.com/web/image/5037-c988d53f/image%20%282%29.webp",
+"https://auricmills.com/web/image/5036-72d93f58/2.webp",
+"https://auricmills.com/web/image/5038-1537a2ae/3.webp"
+];
+
+const slidesContainer = document.getElementById("carouselSlides");
+const dotsContainer = document.getElementById("carouselDots");
+
+images.forEach((url, index) =&gt; {
+
+    // create slide
+    const slide = document.createElement("div");
+    slide.className = "carousel-item" + (index === 0 ? " active" : "");
+    slide.innerHTML = `&lt;img src="${url}" class="carousel-img" loading="lazy"&gt;`;
+    slidesContainer.appendChild(slide);
+
+    // create dot
+    const dot = document.createElement("button");
+    dot.setAttribute("type","button");
+    dot.setAttribute("data-bs-target","#shopCarousel");
+    dot.setAttribute("data-bs-slide-to",index);
+    if(index === 0) dot.classList.add("active");
+
+    dotsContainer.appendChild(dot);
+
+});
+
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container"><style>
+
+/* Remove extra padding from embed section */
+.s_embed_code_embedded.o_not_editable.container-fluid{
+    padding:0 !important;
+}
+
+/* Carousel wrapper */
+.custom-carousel{
+    width:100%;
+}
+
+/* Aspect ratio container */
+.carousel-item{
+    aspect-ratio:15/8;
+    width:100%;
+}
+
+/* Image styling */
+.carousel-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* Indicators bottom-right */
+.carousel-indicators{
+    justify-content:flex-end;
+    margin-right:20px;
+    margin-left:auto;
+    bottom:10px;
+}
+
+.carousel-indicators [data-bs-target]{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background-color: black;
+}
+
+</style><div id="shopCarousel" class="carousel slide custom-carousel" data-bs-interval="8000" data-bs-ride="carousel">
+
+    
+    <div class="carousel-indicators" id="carouselDots"/>
+
+    
+    <div class="carousel-inner" id="carouselSlides"/>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#shopCarousel" data-bs-slide="prev">
+      
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#shopCarousel" data-bs-slide="next">
+       
+    </button>
+
+</div><script>
+
+const images = [
+"https://auricmills.com/web/image/5339-b07f7f55/auric%20millbanner.jpg",
+"https://auricmills.com/web/image/5037-c988d53f/image%20%282%29.webp",
+"https://auricmills.com/web/image/5036-72d93f58/2.webp",
+"https://auricmills.com/web/image/5038-1537a2ae/3.webp"
+];
+
+const slidesContainer = document.getElementById("carouselSlides");
+const dotsContainer = document.getElementById("carouselDots");
+
+images.forEach((url, index) =&gt; {
+
+    // create slide
+    const slide = document.createElement("div");
+    slide.className = "carousel-item" + (index === 0 ? " active" : "");
+    slide.innerHTML = `&lt;img src="${url}" class="carousel-img" loading="lazy"&gt;`;
+    slidesContainer.appendChild(slide);
+
+    // create dot
+    const dot = document.createElement("button");
+    dot.setAttribute("type","button");
+    dot.setAttribute("data-bs-target","#shopCarousel");
+    dot.setAttribute("data-bs-slide-to",index);
+    if(index === 0) dot.classList.add("active");
+
+    dotsContainer.appendChild(dot);
+
+});
+
+</script></div>
+    </section><section class="s_embed_code o_colored_level pb0 pt32 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shop by Category</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f9fafb;
+  }
+
+  /* ================= TOP PICKS ================= */
+
+  .top-picks {
+    padding: 30px 0;
+    position: relative;
+  }
+
+  /* ================= CATEGORY TABS ================= */
+
+  .category-tabs {
+    display: flex;
+    gap: 12px;
+    padding: 0 30px;
+    font-size: 10px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .category-tabs {
+      gap: 20px;
+      /* more space between tabs */
+      margin-bottom: 30px;
+      /* more spacing below */
+    }
+
+    .category-tab {
+      padding: 10px 16px;
+      /* larger clickable area */
+      font-size: 14px;
+      /* bigger text for desktop */
+      min-width: 120px;
+      /* wider tabs */
+    }
+
+    .category-tab.active {
+      box-shadow: 4px 8px 8px #0000002e;
+      /* slightly bigger shadow for active tab */
+    }
+  }
+
+  .category-tab {
+    border-radius: 5px;
+    background: #daa345;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+    align-content: center;
+  }
+
+  .category-tab.active {
+    background: #a86f24;
+    box-shadow: 3px 6px 6px #0000002e;
+  }
+
+  /* ================= PRODUCT STRIP ================= */
+
+  .product-strip {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 30px;
+  }
+
+  .product-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-card {
+    flex: 0 0 70%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .product-card {
+      flex: 0 0 280px;
+    }
+  }
+
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 35px;
+  }
+
+  .product-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a86f24;
+    flex: 1;
+    min-width: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .product-title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a86f24;
+    white-space: nowrap;
+    width: 36%;
+  }
+
+  .product-desc {
+    font-size: 12px;
+    color: #5f6f5f;
+    margin: 6px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left
+  }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+
+  .star {
+    color: #ccc;
+  }
+
+  .star.filled {
+    color: #f4b400;
+  }
+
+  /* ================= VARIANT DROPDOWN ================= */
+
+  .variant-dropdown {
+    position: relative;
+    margin: 8px 0;
+    font-size: 13px;
+  }
+
+  .variant-selected {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .variant-selected::after {
+    content: "▾";
+    font-size: 14px;
+  }
+
+  .variant-options {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    z-index: 20;
+    display: none;
+  }
+
+  .variant-option {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+
+  .variant-option:hover {
+    background: #f3f4f6;
+  }
+
+  /* ================= CART ================= */
+
+  .cart-row {
+    margin-top: 8px;
+  }
+
+  .add-btn {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #d19a45;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .qty-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #d19a45;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* ================= ARROWS ================= */
+
+  .strip-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    background: #e6e6e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .strip-nav.left {
+    left: 6px;
+  }
+
+  .strip-nav.right {
+    right: 6px;
+  }
+</style>
+
+<img src="/custom_website/static/src/img/shop_by_category3.jpg" style="width: 100%; padding-top: 8px" loading="lazy"/>
+
+<div class="top-picks">
+  <div class="strip-nav left" id="prevBtn">‹</div>
+  <div class="strip-nav right" id="nextBtn">›</div>
+
+  <div class="category-tabs" id="categoryTabs"/>
+  <div class="product-strip" id="productStrip"/>
+</div>
+<script>
+  const API = {
+    categories: "/api/categories",
+    products: "/api/products-by-id?category_id=",
+  };
+
+  const tabsEl = document.getElementById("categoryTabs");
+  const productEl = document.getElementById("productStrip");
+
+  fetch(API.categories)
+    .then((r) =&gt; r.json())
+    .then((d) =&gt; renderCategories(d.categories || []));
+
+  function renderCategories(categories) {
+    tabsEl.innerHTML = "";
+    categories.forEach((c, i) =&gt; {
+      const tab = document.createElement("div");
+      tab.className = "category-tab" + (i === 0 ? " active" : "");
+      tab.textContent = c.name;
+      tab.onclick = () =&gt; selectCategory(c.id, tab);
+      tabsEl.appendChild(tab);
+    });
+    if (categories.length) selectCategory(categories[0].id, tabsEl.firstChild);
+  }
+
+  function selectCategory(id, el) {
+    document
+      .querySelectorAll(".category-tab")
+      .forEach((t) =&gt; t.classList.remove("active"));
+    el.classList.add("active");
+    fetch(API.products + id)
+      .then((r) =&gt; r.json())
+      .then((d) =&gt; renderProducts(d.products || []));
+  }
+
+  function renderProducts(products) {
+    productEl.innerHTML = "";
+
+    products.forEach((p) =&gt; {
+        // Check if multiple variants exist
+        const hasMultipleVariants = p.variants &amp;&amp; p.variants.length &gt; 1;
+
+        productEl.innerHTML += `
+        &lt;div class="product-card" data-product-template-id="${p.id}"&gt;
+          &lt;a href="/shop/${p.slug_value}"&gt;
+            &lt;img src="${p.image}"&gt;
+          &lt;/a&gt;
+          &lt;div class="product-info"&gt;
+            &lt;div class="row"&gt;
+              &lt;div class="product-title"&gt;
+                &lt;a href="/shop/${p.slug_value}"&gt;${p.title}&lt;/a&gt;
+              &lt;/div&gt;
+              &lt;div class="product-price"&gt;₹&lt;span class="price"&gt;${Math.round(p.variants[0].final_price)}&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="product-desc"&gt;${p.short_description || ""}&lt;/div&gt;
+            &lt;div class="rating-row"&gt;
+              ${renderStars(p.rating || 0)}
+              &lt;span&gt;(${p.rating_count || 0})&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;div class="variant-dropdown" style="${!hasMultipleVariants ? 'pointer-events: none;' : ''}"&gt;
+              &lt;div class="variant-selected ${!hasMultipleVariants ? 'no-arrow' : ''}"
+                   data-product-id="${p.variants[0].product_id}"
+                   data-price="${p.variants[0].final_price}"&gt;
+                ${p.variants[0].name}
+              &lt;/div&gt;
+              &lt;div class="variant-options"&gt;
+                ${p.variants.map((v) =&gt; `
+                  &lt;div class="variant-option" data-product-id="${v.product_id}" data-price="${v.final_price}"&gt;
+                    ${v.name}
+                  &lt;/div&gt;`).join("")}
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="cart-row"&gt;
+              &lt;button class="add-btn"&gt;ADD&lt;/button&gt;
+              &lt;div class="qty-box hidden"&gt;
+                &lt;button class="qty-btn minus"&gt;−&lt;/button&gt;
+                &lt;span class="qty"&gt;1&lt;/span&gt;
+                &lt;button class="qty-btn plus"&gt;+&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      `;
+    });
+
+    // Arrow hide karne ke liye dynamic CSS
+    if (!document.getElementById('variant-fix-style')) {
+        const style = document.createElement('style');
+        style.id = 'variant-fix-style';
+        style.innerHTML = '.variant-selected.no-arrow::after { content: "" !important; }';
+        document.head.appendChild(style);
+    }
+
+    bindProductEvents();
+}
+
+  const cartState = {};
+
+  function bindProductEvents() {
+    document.querySelectorAll(".product-card").forEach((card) =&gt; {
+      const priceEl = card.querySelector(".price");
+      const addBtn = card.querySelector(".add-btn");
+      const qtyBox = card.querySelector(".qty-box");
+      const qtyEl = card.querySelector(".qty");
+
+      const variantSelected = card.querySelector(".variant-selected");
+      const variantOptions = card.querySelector(".variant-options");
+
+      let qty = 1;
+      let unitPrice = Number(variantSelected.dataset.price);
+      let productId = Number(variantSelected.dataset.productId);
+
+      function updatePrice() {
+        // priceEl.textContent = (unitPrice * qty).toFixed(2);
+        priceEl.textContent = Math.round(unitPrice * qty);
+      }
+
+      function updateCartIcon(cartQuantity) {
+        console.log("entered into _updateCartIcon: ", cartQuantity);
+        window.sessionStorage.setItem(
+          "website_sale_cart_quantity",
+          cartQuantity
+        );
+        console.log("done");
+        // Mobile and Desktop elements have to be updated.
+        const cartQuantityElements =
+          document.querySelectorAll(".my_cart_quantity");
+        console.log("cartQuantityElements ", cartQuantityElements);
+        for (const cartQuantityElement of cartQuantityElements) {
+          console.log("cartQuantityElement ", cartQuantityElement);
+          if (cartQuantity === 0) {
+            console.log("going into if");
+            cartQuantityElement.classList.add("d-none");
+          } else {
+            console.log("going into else");
+            const cartIconElement =
+              document.querySelector("li.o_wsale_my_cart");
+            console.log("cartIconElement ", cartIconElement);
+            cartIconElement.classList.remove("d-none");
+            cartQuantityElement.classList.remove("d-none");
+            cartQuantityElement.classList.add("o_mycart_zoom_animation");
+            setTimeout(() =&gt; {
+              cartQuantityElement.textContent = cartQuantity;
+              cartQuantityElement.classList.remove("o_mycart_zoom_animation");
+            }, 300);
+          }
+        }
+      }
+
+      variantSelected.onclick = () =&gt; {
+        variantOptions.style.display =
+          variantOptions.style.display === "block" ? "none" : "block";
+      };
+
+      variantOptions.querySelectorAll(".variant-option").forEach((opt) =&gt; {
+        opt.onclick = () =&gt; {
+          unitPrice = Number(opt.dataset.price);
+          productId = Number(opt.dataset.productId);
+          variantSelected.textContent = opt.textContent;
+          variantSelected.dataset.price = unitPrice;
+          variantSelected.dataset.productId = productId;
+          qty = 1;
+          qtyEl.textContent = qty;
+          qtyBox.classList.add("hidden");
+          addBtn.classList.remove("hidden");
+          updatePrice();
+          variantOptions.style.display = "none";
+        };
+      });
+
+      // bindProductEvents ke andar sirf addBtn.onclick wala part replace karein:
+addBtn.onclick = async () =&gt; {
+    const originalText = "ADD";
+    const darkBg = "#a86f24"; // Same theme but darker
+    const originalBg = "#d19a45";
+
+    // 1. Disable &amp; Change UI
+    addBtn.disabled = true;
+    addBtn.textContent = "Added!";
+    addBtn.style.backgroundColor = darkBg;
+    addBtn.style.cursor = "not-allowed";
+
+    try {
+        const response = await fetch("/shop/cart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                params: {
+                    product_template_id: Number(card.dataset.productTemplateId),
+                    product_id: productId,
+                    add_qty: 1,
+                },
+            }),
+        });
+
+        if (!response.ok) throw new Error("API failed");
+        await response.json();
+
+        // Update cart badge
+        const el = document.querySelector(".my_cart_quantity");
+        if (el) {
+            const currentQty = Number(el.textContent || 0);
+            updateCartIcon(currentQty + 1);
+        }
+
+        // 2. 2 seconds baad reset karna
+        setTimeout(() =&gt; {
+            addBtn.disabled = false;
+            addBtn.textContent = originalText;
+            addBtn.style.backgroundColor = originalBg;
+            addBtn.style.cursor = "pointer";
+        }, 2000);
+
+    } catch (err) {
+        console.error(err);
+        alert("Failed to add product");
+        addBtn.disabled = false;
+        addBtn.textContent = originalText;
+        addBtn.style.backgroundColor = originalBg;
+    }
+};
+
+      document.addEventListener("click", (e) =&gt; {
+        if (!card.contains(e.target)) variantOptions.style.display = "none";
+      });
+    });
+  }
+
+  function renderStars(r) {
+    let out = "";
+    for (let i = 1; i &lt;= 5; i++) {
+      out += `&lt;span class="star ${i &lt;= Math.round(r) ? "filled" : ""
+        }"&gt;★&lt;/span&gt;`;
+    }
+    return out;
+  }
+
+  const strip = document.getElementById("productStrip");
+  document.getElementById("nextBtn").onclick = () =&gt; {
+    strip.scrollBy({ left: strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+  document.getElementById("prevBtn").onclick = () =&gt; {
+    strip.scrollBy({ left: -strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container-fluid"><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Shop by Category</title><style>
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f9fafb;
+  }
+
+  /* ================= TOP PICKS ================= */
+
+  .top-picks {
+    padding: 30px 0;
+    position: relative;
+  }
+
+  /* ================= CATEGORY TABS ================= */
+
+  .category-tabs {
+    display: flex;
+    gap: 12px;
+    padding: 0 30px;
+    font-size: 10px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .category-tabs {
+      gap: 20px;
+      /* more space between tabs */
+      margin-bottom: 30px;
+      /* more spacing below */
+    }
+
+    .category-tab {
+      padding: 10px 16px;
+      /* larger clickable area */
+      font-size: 14px;
+      /* bigger text for desktop */
+      min-width: 120px;
+      /* wider tabs */
+    }
+
+    .category-tab.active {
+      box-shadow: 4px 8px 8px #0000002e;
+      /* slightly bigger shadow for active tab */
+    }
+  }
+
+  .category-tab {
+    border-radius: 5px;
+    background: #daa345;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+    align-content: center;
+  }
+
+  .category-tab.active {
+    background: #a86f24;
+    box-shadow: 3px 6px 6px #0000002e;
+  }
+
+  /* ================= PRODUCT STRIP ================= */
+
+  .product-strip {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 30px;
+  }
+
+  .product-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-card {
+    flex: 0 0 70%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .product-card {
+      flex: 0 0 280px;
+    }
+  }
+
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 35px;
+  }
+
+  .product-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a86f24;
+    flex: 1;
+    min-width: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .product-title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a86f24;
+    white-space: nowrap;
+    width: 36%;
+  }
+
+  .product-desc {
+    font-size: 12px;
+    color: #5f6f5f;
+    margin: 6px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left
+  }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+
+  .star {
+    color: #ccc;
+  }
+
+  .star.filled {
+    color: #f4b400;
+  }
+
+  /* ================= VARIANT DROPDOWN ================= */
+
+  .variant-dropdown {
+    position: relative;
+    margin: 8px 0;
+    font-size: 13px;
+  }
+
+  .variant-selected {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .variant-selected::after {
+    content: "▾";
+    font-size: 14px;
+  }
+
+  .variant-options {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    z-index: 20;
+    display: none;
+  }
+
+  .variant-option {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+
+  .variant-option:hover {
+    background: #f3f4f6;
+  }
+
+  /* ================= CART ================= */
+
+  .cart-row {
+    margin-top: 8px;
+  }
+
+  .add-btn {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #d19a45;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .qty-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #d19a45;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* ================= ARROWS ================= */
+
+  .strip-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    background: #e6e6e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .strip-nav.left {
+    left: 6px;
+  }
+
+  .strip-nav.right {
+    right: 6px;
+  }
+</style><img src="/custom_website/static/src/img/shop_by_category3.jpg" style="width: 100%; padding-top: 8px" loading="lazy"/><div class="top-picks">
+  <div class="strip-nav left" id="prevBtn">‹</div>
+  <div class="strip-nav right" id="nextBtn">›</div>
+
+  <div class="category-tabs" id="categoryTabs"/>
+  <div class="product-strip" id="productStrip"/>
+</div><script>
+  const API = {
+    categories: "/api/categories",
+    products: "/api/products-by-id?category_id=",
+  };
+
+  const tabsEl = document.getElementById("categoryTabs");
+  const productEl = document.getElementById("productStrip");
+
+  fetch(API.categories)
+    .then((r) =&gt; r.json())
+    .then((d) =&gt; renderCategories(d.categories || []));
+
+  function renderCategories(categories) {
+    tabsEl.innerHTML = "";
+    categories.forEach((c, i) =&gt; {
+      const tab = document.createElement("div");
+      tab.className = "category-tab" + (i === 0 ? " active" : "");
+      tab.textContent = c.name;
+      tab.onclick = () =&gt; selectCategory(c.id, tab);
+      tabsEl.appendChild(tab);
+    });
+    if (categories.length) selectCategory(categories[0].id, tabsEl.firstChild);
+  }
+
+  function selectCategory(id, el) {
+    document
+      .querySelectorAll(".category-tab")
+      .forEach((t) =&gt; t.classList.remove("active"));
+    el.classList.add("active");
+    fetch(API.products + id)
+      .then((r) =&gt; r.json())
+      .then((d) =&gt; renderProducts(d.products || []));
+  }
+
+  function renderProducts(products) {
+    productEl.innerHTML = "";
+
+    products.forEach((p) =&gt; {
+        // Check if multiple variants exist
+        const hasMultipleVariants = p.variants &amp;&amp; p.variants.length &gt; 1;
+
+        productEl.innerHTML += `
+        &lt;div class="product-card" data-product-template-id="${p.id}"&gt;
+          &lt;a href="/shop/${p.slug_value}"&gt;
+            &lt;img src="${p.image}"&gt;
+          &lt;/a&gt;
+          &lt;div class="product-info"&gt;
+            &lt;div class="row"&gt;
+              &lt;div class="product-title"&gt;
+                &lt;a href="/shop/${p.slug_value}"&gt;${p.title}&lt;/a&gt;
+              &lt;/div&gt;
+              &lt;div class="product-price"&gt;₹&lt;span class="price"&gt;${Math.round(p.variants[0].final_price)}&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="product-desc"&gt;${p.short_description || ""}&lt;/div&gt;
+            &lt;div class="rating-row"&gt;
+              ${renderStars(p.rating || 0)}
+              &lt;span&gt;(${p.rating_count || 0})&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;div class="variant-dropdown" style="${!hasMultipleVariants ? 'pointer-events: none;' : ''}"&gt;
+              &lt;div class="variant-selected ${!hasMultipleVariants ? 'no-arrow' : ''}"
+                   data-product-id="${p.variants[0].product_id}"
+                   data-price="${p.variants[0].final_price}"&gt;
+                ${p.variants[0].name}
+              &lt;/div&gt;
+              &lt;div class="variant-options"&gt;
+                ${p.variants.map((v) =&gt; `
+                  &lt;div class="variant-option" data-product-id="${v.product_id}" data-price="${v.final_price}"&gt;
+                    ${v.name}
+                  &lt;/div&gt;`).join("")}
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="cart-row"&gt;
+              &lt;button class="add-btn"&gt;ADD&lt;/button&gt;
+              &lt;div class="qty-box hidden"&gt;
+                &lt;button class="qty-btn minus"&gt;−&lt;/button&gt;
+                &lt;span class="qty"&gt;1&lt;/span&gt;
+                &lt;button class="qty-btn plus"&gt;+&lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      `;
+    });
+
+    // Arrow hide karne ke liye dynamic CSS
+    if (!document.getElementById('variant-fix-style')) {
+        const style = document.createElement('style');
+        style.id = 'variant-fix-style';
+        style.innerHTML = '.variant-selected.no-arrow::after { content: "" !important; }';
+        document.head.appendChild(style);
+    }
+
+    bindProductEvents();
+}
+
+  const cartState = {};
+
+  function bindProductEvents() {
+    document.querySelectorAll(".product-card").forEach((card) =&gt; {
+      const priceEl = card.querySelector(".price");
+      const addBtn = card.querySelector(".add-btn");
+      const qtyBox = card.querySelector(".qty-box");
+      const qtyEl = card.querySelector(".qty");
+
+      const variantSelected = card.querySelector(".variant-selected");
+      const variantOptions = card.querySelector(".variant-options");
+
+      let qty = 1;
+      let unitPrice = Number(variantSelected.dataset.price);
+      let productId = Number(variantSelected.dataset.productId);
+
+      function updatePrice() {
+        // priceEl.textContent = (unitPrice * qty).toFixed(2);
+        priceEl.textContent = Math.round(unitPrice * qty);
+      }
+
+      function updateCartIcon(cartQuantity) {
+        console.log("entered into _updateCartIcon: ", cartQuantity);
+        window.sessionStorage.setItem(
+          "website_sale_cart_quantity",
+          cartQuantity
+        );
+        console.log("done");
+        // Mobile and Desktop elements have to be updated.
+        const cartQuantityElements =
+          document.querySelectorAll(".my_cart_quantity");
+        console.log("cartQuantityElements ", cartQuantityElements);
+        for (const cartQuantityElement of cartQuantityElements) {
+          console.log("cartQuantityElement ", cartQuantityElement);
+          if (cartQuantity === 0) {
+            console.log("going into if");
+            cartQuantityElement.classList.add("d-none");
+          } else {
+            console.log("going into else");
+            const cartIconElement =
+              document.querySelector("li.o_wsale_my_cart");
+            console.log("cartIconElement ", cartIconElement);
+            cartIconElement.classList.remove("d-none");
+            cartQuantityElement.classList.remove("d-none");
+            cartQuantityElement.classList.add("o_mycart_zoom_animation");
+            setTimeout(() =&gt; {
+              cartQuantityElement.textContent = cartQuantity;
+              cartQuantityElement.classList.remove("o_mycart_zoom_animation");
+            }, 300);
+          }
+        }
+      }
+
+      variantSelected.onclick = () =&gt; {
+        variantOptions.style.display =
+          variantOptions.style.display === "block" ? "none" : "block";
+      };
+
+      variantOptions.querySelectorAll(".variant-option").forEach((opt) =&gt; {
+        opt.onclick = () =&gt; {
+          unitPrice = Number(opt.dataset.price);
+          productId = Number(opt.dataset.productId);
+          variantSelected.textContent = opt.textContent;
+          variantSelected.dataset.price = unitPrice;
+          variantSelected.dataset.productId = productId;
+          qty = 1;
+          qtyEl.textContent = qty;
+          qtyBox.classList.add("hidden");
+          addBtn.classList.remove("hidden");
+          updatePrice();
+          variantOptions.style.display = "none";
+        };
+      });
+
+      // bindProductEvents ke andar sirf addBtn.onclick wala part replace karein:
+addBtn.onclick = async () =&gt; {
+    const originalText = "ADD";
+    const darkBg = "#a86f24"; // Same theme but darker
+    const originalBg = "#d19a45";
+
+    // 1. Disable &amp; Change UI
+    addBtn.disabled = true;
+    addBtn.textContent = "Added!";
+    addBtn.style.backgroundColor = darkBg;
+    addBtn.style.cursor = "not-allowed";
+
+    try {
+        const response = await fetch("/shop/cart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                params: {
+                    product_template_id: Number(card.dataset.productTemplateId),
+                    product_id: productId,
+                    add_qty: 1,
+                },
+            }),
+        });
+
+        if (!response.ok) throw new Error("API failed");
+        await response.json();
+
+        // Update cart badge
+        const el = document.querySelector(".my_cart_quantity");
+        if (el) {
+            const currentQty = Number(el.textContent || 0);
+            updateCartIcon(currentQty + 1);
+        }
+
+        // 2. 2 seconds baad reset karna
+        setTimeout(() =&gt; {
+            addBtn.disabled = false;
+            addBtn.textContent = originalText;
+            addBtn.style.backgroundColor = originalBg;
+            addBtn.style.cursor = "pointer";
+        }, 2000);
+
+    } catch (err) {
+        console.error(err);
+        alert("Failed to add product");
+        addBtn.disabled = false;
+        addBtn.textContent = originalText;
+        addBtn.style.backgroundColor = originalBg;
+    }
+};
+
+      document.addEventListener("click", (e) =&gt; {
+        if (!card.contains(e.target)) variantOptions.style.display = "none";
+      });
+    });
+  }
+
+  function renderStars(r) {
+    let out = "";
+    for (let i = 1; i &lt;= 5; i++) {
+      out += `&lt;span class="star ${i &lt;= Math.round(r) ? "filled" : ""
+        }"&gt;★&lt;/span&gt;`;
+    }
+    return out;
+  }
+
+  const strip = document.getElementById("productStrip");
+  document.getElementById("nextBtn").onclick = () =&gt; {
+    strip.scrollBy({ left: strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+  document.getElementById("prevBtn").onclick = () =&gt; {
+    strip.scrollBy({ left: -strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+</script></div>
+    </section><section class="s_embed_code o_colored_level pt0 pb0 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  /* ===== EXISTING STYLES (UNCHANGED) ===== */
+  .cp-wrapper {
+    padding: 30px 0px;
+    font-family: system-ui, sans-serif;
+    position: relative;
+  }
+
+@media (min-width: 768px) {
+  .cp-tabs {
+    gap: 0px !important;
+    margin-bottom: 30px;
+    justify-content: space-between;
+  }
+
+  .cp-tab {
+    padding: 12px 30px; /* larger clickable area */
+    gap: 12px;
+    font-size: 14px; /* bigger text for desktop */
+    min-width: 120px; /* wider tabs */
+  }
+}
+
+  .cp-tabs {
+    padding:0 27px;
+    display: flex;
+    gap: 12px;
+    font-size: 10px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .cp-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cp-tab {
+
+    border-radius: 5px;
+    background: #daa345;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+    min-width: 100px;
+
+    text-align: center;
+    align-content: center;
+  }
+
+  .cp-tab.cp-active {
+    background: #a86f24;
+    box-shadow: 3px 6px 6px #0000002e;
+  }
+
+  .cp-products {
+    padding:0 30px;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+   
+  }
+
+  .cp-products::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cp-card {
+    flex: 0 0 70%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+   @media (min-width: 768px) {
+    .cp-card {
+      flex: 0 0 280px;
+    }
+  }
+
+  .cp-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .cp-info {
+    padding: 10px;
+  }
+
+  .cp-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 35px;
+  }
+
+  .cp-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a86f24;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+    text-align: left
+  }
+
+  .cp-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a86f24;
+    white-space: nowrap;
+    width: 36%;
+  }
+
+  .cp-desc {
+    font-size: 12px;
+    color: #5f6f5f;
+    margin: 6px 0;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .cp-rating {
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+
+  .cp-star {
+    color: #ccc;
+  }
+  .cp-star.cp-filled {
+    color: #f4b400;
+  }
+
+  /* ===== CUSTOM DROPDOWN ===== */
+  .cp-variant {
+    position: relative;
+    margin: 8px 0;
+    font-size: 13px;
+  }
+
+  .cp-variant-cpVariantSelectEl {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cp-variant-cpVariantSelectEl::after {
+    content: "▾";
+    font-size: 14px;
+  }
+
+  .cp-variant-options {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 20;
+  }
+
+  .cp-variant-option {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+
+  .cp-variant-option:hover {
+    background: #f3f4f6;
+  }
+
+  /* ===== CART ===== */
+  .cp-add {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #d19a45;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .cp-hidden {
+    display: none;
+  }
+
+  .cpstrip-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: 36px;
+    height: 36px;
+
+    background: #e6e6e6; /* light grey */
+    color: #333;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center; /* vertical centering */
+    justify-content: center; /* horizontal centering */
+
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1; /* 🔴 CRITICAL for centering */
+
+    cursor: pointer;
+    user-select: none;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .cpstrip-nav.left {
+    left: 6px;
+  }
+
+  .cpstrip-nav.right {
+    right: 6px;
+  }
+</style>
+
+<img src="/custom_website/static/src/img/shop_by_concern2.jpg" style="width: 100%; padding-top: 8px" loading="lazy"/>
+
+<div class="cp-wrapper">
+  <div class="cpstrip-nav left" id="cpprevBtn">‹</div>
+  <div class="cpstrip-nav right" id="cpnextBtn">›</div>
+  <div class="cp-tabs-wrapper"><div class="cp-tabs" id="cpTabs"/></div>
+  <div class="cp-products" id="cpProducts"/>
+</div>
+
+<script>
+  const CP_API = {
+    categories: "/api/concerns",
+    products: "/api/products-by-id?concern_id=",
+  };
+
+  const cpTabsEl = document.getElementById("cpTabs");
+  const cpProductsEl = document.getElementById("cpProducts");
+
+  /* ===== CATEGORY ===== */
+  fetch(CP_API.categories)
+    .then((r) =&gt; r.json())
+    .then((d) =&gt; renderCpCategories(d.concerns || []));
+
+  function renderCpCategories(list) {
+    cpTabsEl.innerHTML = "";
+    list.forEach((c, i) =&gt; {
+      const tab = document.createElement("div");
+      tab.className = "cp-tab" + (i === 0 ? " cp-active" : "");
+      tab.textContent = c.name;
+      tab.onclick = () =&gt; selectCpCategory(c.id, tab);
+      cpTabsEl.appendChild(tab);
+    });
+    if (list.length) selectCpCategory(list[0].id, cpTabsEl.firstChild);
+  }
+
+  function selectCpCategory(id, el) {
+    document
+      .querySelectorAll(".cp-tab")
+      .forEach((t) =&gt; t.classList.remove("cp-active"));
+    el.classList.add("cp-active");
+    fetch(CP_API.products + id)
+      .then((r) =&gt; r.json())
+      .then((d) =&gt; renderCpProducts(d.products || []));
+  }
+
+  /* ===== PRODUCTS ===== */
+  function renderCpProducts(products) {
+    cpProductsEl.innerHTML = "";
+
+    products.forEach((p) =&gt; {
+        // Check if multiple variants exist
+        const hasMultipleVariants = p.variants &amp;&amp; p.variants.length &gt; 1;
+
+        cpProductsEl.innerHTML += `
+      &lt;div class="cp-card" data-product-template-id="${p.id}"&gt;
+          &lt;a href="/shop/${p.slug_value}"&gt;
+        &lt;img src="${p.image}"&gt;&lt;/a&gt;
+        &lt;div class="cp-info"&gt;
+          &lt;div class="cp-row"&gt;
+            &lt;a href="/shop/${p.slug_value}" class="cp-title"&gt;${p.title}&lt;/a&gt;
+            &lt;div class="cp-price"&gt;₹&lt;span class="price"&gt;
+                ${Math.round(p.variants[0].final_price)}
+            &lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="cp-desc"&gt;${p.short_description || ""}&lt;/div&gt;
+
+          &lt;div class="cp-rating"&gt;
+            ${renderCpStars(p.rating || 0)}
+            &lt;span&gt;(${p.rating_count || 0})&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class="cp-variant" style="${!hasMultipleVariants ? 'pointer-events: none;' : ''}"&gt;
+            &lt;div class="cp-variant-cpVariantSelectEl ${!hasMultipleVariants ? 'no-arrow' : ''}"
+                 data-product-id="${p.variants[0].product_id}"
+                 data-price="${p.variants[0].final_price}"&gt;
+              ${p.variants[0].name}
+            &lt;/div&gt;
+
+            &lt;div class="cp-variant-options"&gt;
+              ${p.variants.map((v) =&gt; `
+                &lt;div class="cp-variant-option"
+                     data-product-id="${v.product_id}"
+                     data-price="${v.final_price}"&gt;
+                  ${v.name}
+                &lt;/div&gt;`).join("")}
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;button class="cp-add"&gt;ADD&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    `;
+    });
+
+    // Arrow hide karne ke liye CSS
+    if (!document.getElementById('cp-variant-style')) {
+        const style = document.createElement('style');
+        style.id = 'cp-variant-style';
+        style.innerHTML = '.cp-variant-cpVariantSelectEl.no-arrow::after { content: "" !important; }';
+        document.head.appendChild(style);
+    }
+
+    bindCpProductEvents();
+}
+
+  const cpCartState = {};
+
+  /* ===== EVENTS (LOGIC UNCHANGED) ===== */
+  function bindCpProductEvents() {
+    document.querySelectorAll(".cp-card").forEach((cpCardEl) =&gt; {
+      const cpPriceEl = cpCardEl.querySelector(".price");
+      const cpVariantSelectEl = cpCardEl.querySelector(".cp-variant-cpVariantSelectEl");
+      const options = cpCardEl.querySelector(".cp-variant-options");
+      const cpAddBtnEl = cpCardEl.querySelector(".cp-add");
+
+      let qty = 1;
+      let unitPrice = Number(cpVariantSelectEl.dataset.price);
+      let currentProductId = Number(cpVariantSelectEl.dataset.productId);
+
+      cpVariantSelectEl.onclick = () =&gt; {
+        options.style.display =
+          options.style.display === "block" ? "none" : "block";
+      };
+
+      function updateCpPrice() {
+        cpPriceEl.textContent = Math.round(unitPrice * qty);
+      }
+
+      options.querySelectorAll(".cp-variant-option").forEach((opt) =&gt; {
+        opt.onclick = () =&gt; {
+          unitPrice = Number(opt.dataset.price);
+          currentProductId = Number(opt.dataset.productId);
+          cpVariantSelectEl.textContent = opt.textContent;
+          cpVariantSelectEl.dataset.price = unitPrice;
+          cpVariantSelectEl.dataset.productId = currentProductId;
+          qty = 1;
+          cpPriceEl.textContent = Math.round(unitPrice);
+          options.style.display = "none";
+        };
+      });
+
+      document.addEventListener("click", (e) =&gt; {
+        if (!cpCardEl.contains(e.target)) options.style.display = "none";
+      });
+
+      function updateCpCartIcon(cartQty) {
+        window.sessionStorage.setItem("website_sale_cart_quantity", cartQty);
+
+        const cartQtyEls = document.querySelectorAll(".my_cart_quantity");
+
+        cartQtyEls.forEach((qtyEl) =&gt; {
+          if (cartQty &lt;= 0) {
+            qtyEl.classList.add("d-none");
+            return;
+          }
+
+          const cartIconEl = document.querySelector("li.o_wsale_my_cart");
+          if (cartIconEl) cartIconEl.classList.remove("d-none");
+
+          qtyEl.classList.remove("d-none");
+          qtyEl.classList.add("o_mycart_zoom_animation");
+
+          setTimeout(() =&gt; {
+            qtyEl.textContent = cartQty;
+            qtyEl.classList.remove("o_mycart_zoom_animation");
+          }, 300);
+        });
+      }
+
+      // bindCpProductEvents ke andar is function ko replace karein:
+cpAddBtnEl.onclick = async () =&gt; {
+    const originalText = "ADD";
+    const darkBg = "#a86f24"; // Theme ka darker version
+    const originalBg = "#d19a45";
+
+    // Start Animation &amp; Disable
+    cpAddBtnEl.disabled = true;
+    cpAddBtnEl.textContent = "Added!";
+    cpAddBtnEl.style.backgroundColor = darkBg;
+    cpAddBtnEl.style.cursor = "not-allowed";
+
+    try {
+        const response = await fetch("/shop/cart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                params: {
+                    product_template_id: Number(cpCardEl.dataset.productTemplateId),
+                    product_id: currentProductId,
+                    add_qty: 1,
+                },
+            }),
+        });
+
+        if (!response.ok) throw new Error("Add to cart failed");
+        await response.json();
+
+        // Cart Icon update
+        const cartQtyEl = document.querySelector(".my_cart_quantity");
+        const currentCartQty = cartQtyEl ? Number(cartQtyEl.textContent || 0) : 0;
+        updateCpCartIcon(currentCartQty + 1);
+
+        // 2 seconds baad UI reset karna
+        setTimeout(() =&gt; {
+            cpAddBtnEl.disabled = false;
+            cpAddBtnEl.textContent = originalText;
+            cpAddBtnEl.style.backgroundColor = originalBg;
+            cpAddBtnEl.style.cursor = "pointer";
+        }, 2000);
+
+    } catch (err) {
+        console.error(err);
+        alert("Failed to add product");
+        // Reset immediately on error
+        cpAddBtnEl.disabled = false;
+        cpAddBtnEl.textContent = originalText;
+        cpAddBtnEl.style.backgroundColor = originalBg;
+    }
+};
+    });
+  }
+
+  /* ===== STARS ===== */
+  function renderCpStars(r) {
+    let out = "";
+    for (let i = 1; i &lt;= 5; i++) {
+      out += `&lt;span class="cp-star ${
+        i &lt;= Math.round(r) ? "cp-filled" : ""
+      }"&gt;★&lt;/span&gt;`;
+    }
+    return out;
+  }
+
+  const cpstrip = document.getElementById("cpProducts");
+  document.getElementById("cpnextBtn").onclick = () =&gt; {
+    cpstrip.scrollBy({ left: strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+  document.getElementById("cpprevBtn").onclick = () =&gt; {
+    cpstrip.scrollBy({ left: -strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container-fluid"><style>
+  /* ===== EXISTING STYLES (UNCHANGED) ===== */
+  .cp-wrapper {
+    padding: 30px 0px;
+    font-family: system-ui, sans-serif;
+    position: relative;
+  }
+
+@media (min-width: 768px) {
+  .cp-tabs {
+    gap: 0px !important;
+    margin-bottom: 30px;
+    justify-content: space-between;
+  }
+
+  .cp-tab {
+    padding: 12px 30px; /* larger clickable area */
+    gap: 12px;
+    font-size: 14px; /* bigger text for desktop */
+    min-width: 120px; /* wider tabs */
+  }
+}
+
+  .cp-tabs {
+    padding:0 27px;
+    display: flex;
+    gap: 12px;
+    font-size: 10px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .cp-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cp-tab {
+
+    border-radius: 5px;
+    background: #daa345;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+    min-width: 100px;
+
+    text-align: center;
+    align-content: center;
+  }
+
+  .cp-tab.cp-active {
+    background: #a86f24;
+    box-shadow: 3px 6px 6px #0000002e;
+  }
+
+  .cp-products {
+    padding:0 30px;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+   
+  }
+
+  .cp-products::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cp-card {
+    flex: 0 0 70%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+   @media (min-width: 768px) {
+    .cp-card {
+      flex: 0 0 280px;
+    }
+  }
+
+  .cp-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .cp-info {
+    padding: 10px;
+  }
+
+  .cp-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 35px;
+  }
+
+  .cp-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a86f24;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+    text-align: left
+  }
+
+  .cp-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a86f24;
+    white-space: nowrap;
+    width: 36%;
+  }
+
+  .cp-desc {
+    font-size: 12px;
+    color: #5f6f5f;
+    margin: 6px 0;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .cp-rating {
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    margin-bottom: 35px;
+  }
+
+  .cp-star {
+    color: #ccc;
+  }
+  .cp-star.cp-filled {
+    color: #f4b400;
+  }
+
+  /* ===== CUSTOM DROPDOWN ===== */
+  .cp-variant {
+    position: relative;
+    margin: 8px 0;
+    font-size: 13px;
+  }
+
+  .cp-variant-cpVariantSelectEl {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cp-variant-cpVariantSelectEl::after {
+    content: "▾";
+    font-size: 14px;
+  }
+
+  .cp-variant-options {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 20;
+  }
+
+  .cp-variant-option {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+
+  .cp-variant-option:hover {
+    background: #f3f4f6;
+  }
+
+  /* ===== CART ===== */
+  .cp-add {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #d19a45;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .cp-hidden {
+    display: none;
+  }
+
+  .cpstrip-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: 36px;
+    height: 36px;
+
+    background: #e6e6e6; /* light grey */
+    color: #333;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center; /* vertical centering */
+    justify-content: center; /* horizontal centering */
+
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1; /* 🔴 CRITICAL for centering */
+
+    cursor: pointer;
+    user-select: none;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .cpstrip-nav.left {
+    left: 6px;
+  }
+
+  .cpstrip-nav.right {
+    right: 6px;
+  }
+</style><img src="/custom_website/static/src/img/shop_by_concern2.jpg" style="width: 100%; padding-top: 8px" loading="lazy"/><div class="cp-wrapper">
+  <div class="cpstrip-nav left" id="cpprevBtn">‹</div>
+  <div class="cpstrip-nav right" id="cpnextBtn">›</div>
+  <div class="cp-tabs-wrapper"><div class="cp-tabs" id="cpTabs"/></div>
+  <div class="cp-products" id="cpProducts"/>
+</div><script>
+  const CP_API = {
+    categories: "/api/concerns",
+    products: "/api/products-by-id?concern_id=",
+  };
+
+  const cpTabsEl = document.getElementById("cpTabs");
+  const cpProductsEl = document.getElementById("cpProducts");
+
+  /* ===== CATEGORY ===== */
+  fetch(CP_API.categories)
+    .then((r) =&gt; r.json())
+    .then((d) =&gt; renderCpCategories(d.concerns || []));
+
+  function renderCpCategories(list) {
+    cpTabsEl.innerHTML = "";
+    list.forEach((c, i) =&gt; {
+      const tab = document.createElement("div");
+      tab.className = "cp-tab" + (i === 0 ? " cp-active" : "");
+      tab.textContent = c.name;
+      tab.onclick = () =&gt; selectCpCategory(c.id, tab);
+      cpTabsEl.appendChild(tab);
+    });
+    if (list.length) selectCpCategory(list[0].id, cpTabsEl.firstChild);
+  }
+
+  function selectCpCategory(id, el) {
+    document
+      .querySelectorAll(".cp-tab")
+      .forEach((t) =&gt; t.classList.remove("cp-active"));
+    el.classList.add("cp-active");
+    fetch(CP_API.products + id)
+      .then((r) =&gt; r.json())
+      .then((d) =&gt; renderCpProducts(d.products || []));
+  }
+
+  /* ===== PRODUCTS ===== */
+  function renderCpProducts(products) {
+    cpProductsEl.innerHTML = "";
+
+    products.forEach((p) =&gt; {
+        // Check if multiple variants exist
+        const hasMultipleVariants = p.variants &amp;&amp; p.variants.length &gt; 1;
+
+        cpProductsEl.innerHTML += `
+      &lt;div class="cp-card" data-product-template-id="${p.id}"&gt;
+          &lt;a href="/shop/${p.slug_value}"&gt;
+        &lt;img src="${p.image}"&gt;&lt;/a&gt;
+        &lt;div class="cp-info"&gt;
+          &lt;div class="cp-row"&gt;
+            &lt;a href="/shop/${p.slug_value}" class="cp-title"&gt;${p.title}&lt;/a&gt;
+            &lt;div class="cp-price"&gt;₹&lt;span class="price"&gt;
+                ${Math.round(p.variants[0].final_price)}
+            &lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="cp-desc"&gt;${p.short_description || ""}&lt;/div&gt;
+
+          &lt;div class="cp-rating"&gt;
+            ${renderCpStars(p.rating || 0)}
+            &lt;span&gt;(${p.rating_count || 0})&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class="cp-variant" style="${!hasMultipleVariants ? 'pointer-events: none;' : ''}"&gt;
+            &lt;div class="cp-variant-cpVariantSelectEl ${!hasMultipleVariants ? 'no-arrow' : ''}"
+                 data-product-id="${p.variants[0].product_id}"
+                 data-price="${p.variants[0].final_price}"&gt;
+              ${p.variants[0].name}
+            &lt;/div&gt;
+
+            &lt;div class="cp-variant-options"&gt;
+              ${p.variants.map((v) =&gt; `
+                &lt;div class="cp-variant-option"
+                     data-product-id="${v.product_id}"
+                     data-price="${v.final_price}"&gt;
+                  ${v.name}
+                &lt;/div&gt;`).join("")}
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;button class="cp-add"&gt;ADD&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    `;
+    });
+
+    // Arrow hide karne ke liye CSS
+    if (!document.getElementById('cp-variant-style')) {
+        const style = document.createElement('style');
+        style.id = 'cp-variant-style';
+        style.innerHTML = '.cp-variant-cpVariantSelectEl.no-arrow::after { content: "" !important; }';
+        document.head.appendChild(style);
+    }
+
+    bindCpProductEvents();
+}
+
+  const cpCartState = {};
+
+  /* ===== EVENTS (LOGIC UNCHANGED) ===== */
+  function bindCpProductEvents() {
+    document.querySelectorAll(".cp-card").forEach((cpCardEl) =&gt; {
+      const cpPriceEl = cpCardEl.querySelector(".price");
+      const cpVariantSelectEl = cpCardEl.querySelector(".cp-variant-cpVariantSelectEl");
+      const options = cpCardEl.querySelector(".cp-variant-options");
+      const cpAddBtnEl = cpCardEl.querySelector(".cp-add");
+
+      let qty = 1;
+      let unitPrice = Number(cpVariantSelectEl.dataset.price);
+      let currentProductId = Number(cpVariantSelectEl.dataset.productId);
+
+      cpVariantSelectEl.onclick = () =&gt; {
+        options.style.display =
+          options.style.display === "block" ? "none" : "block";
+      };
+
+      function updateCpPrice() {
+        cpPriceEl.textContent = Math.round(unitPrice * qty);
+      }
+
+      options.querySelectorAll(".cp-variant-option").forEach((opt) =&gt; {
+        opt.onclick = () =&gt; {
+          unitPrice = Number(opt.dataset.price);
+          currentProductId = Number(opt.dataset.productId);
+          cpVariantSelectEl.textContent = opt.textContent;
+          cpVariantSelectEl.dataset.price = unitPrice;
+          cpVariantSelectEl.dataset.productId = currentProductId;
+          qty = 1;
+          cpPriceEl.textContent = Math.round(unitPrice);
+          options.style.display = "none";
+        };
+      });
+
+      document.addEventListener("click", (e) =&gt; {
+        if (!cpCardEl.contains(e.target)) options.style.display = "none";
+      });
+
+      function updateCpCartIcon(cartQty) {
+        window.sessionStorage.setItem("website_sale_cart_quantity", cartQty);
+
+        const cartQtyEls = document.querySelectorAll(".my_cart_quantity");
+
+        cartQtyEls.forEach((qtyEl) =&gt; {
+          if (cartQty &lt;= 0) {
+            qtyEl.classList.add("d-none");
+            return;
+          }
+
+          const cartIconEl = document.querySelector("li.o_wsale_my_cart");
+          if (cartIconEl) cartIconEl.classList.remove("d-none");
+
+          qtyEl.classList.remove("d-none");
+          qtyEl.classList.add("o_mycart_zoom_animation");
+
+          setTimeout(() =&gt; {
+            qtyEl.textContent = cartQty;
+            qtyEl.classList.remove("o_mycart_zoom_animation");
+          }, 300);
+        });
+      }
+
+      // bindCpProductEvents ke andar is function ko replace karein:
+cpAddBtnEl.onclick = async () =&gt; {
+    const originalText = "ADD";
+    const darkBg = "#a86f24"; // Theme ka darker version
+    const originalBg = "#d19a45";
+
+    // Start Animation &amp; Disable
+    cpAddBtnEl.disabled = true;
+    cpAddBtnEl.textContent = "Added!";
+    cpAddBtnEl.style.backgroundColor = darkBg;
+    cpAddBtnEl.style.cursor = "not-allowed";
+
+    try {
+        const response = await fetch("/shop/cart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                params: {
+                    product_template_id: Number(cpCardEl.dataset.productTemplateId),
+                    product_id: currentProductId,
+                    add_qty: 1,
+                },
+            }),
+        });
+
+        if (!response.ok) throw new Error("Add to cart failed");
+        await response.json();
+
+        // Cart Icon update
+        const cartQtyEl = document.querySelector(".my_cart_quantity");
+        const currentCartQty = cartQtyEl ? Number(cartQtyEl.textContent || 0) : 0;
+        updateCpCartIcon(currentCartQty + 1);
+
+        // 2 seconds baad UI reset karna
+        setTimeout(() =&gt; {
+            cpAddBtnEl.disabled = false;
+            cpAddBtnEl.textContent = originalText;
+            cpAddBtnEl.style.backgroundColor = originalBg;
+            cpAddBtnEl.style.cursor = "pointer";
+        }, 2000);
+
+    } catch (err) {
+        console.error(err);
+        alert("Failed to add product");
+        // Reset immediately on error
+        cpAddBtnEl.disabled = false;
+        cpAddBtnEl.textContent = originalText;
+        cpAddBtnEl.style.backgroundColor = originalBg;
+    }
+};
+    });
+  }
+
+  /* ===== STARS ===== */
+  function renderCpStars(r) {
+    let out = "";
+    for (let i = 1; i &lt;= 5; i++) {
+      out += `&lt;span class="cp-star ${
+        i &lt;= Math.round(r) ? "cp-filled" : ""
+      }"&gt;★&lt;/span&gt;`;
+    }
+    return out;
+  }
+
+  const cpstrip = document.getElementById("cpProducts");
+  document.getElementById("cpnextBtn").onclick = () =&gt; {
+    cpstrip.scrollBy({ left: strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+  document.getElementById("cpprevBtn").onclick = () =&gt; {
+    cpstrip.scrollBy({ left: -strip.offsetWidth * 0.7, behavior: "smooth" });
+  };
+</script></div>
+    </section><section class="s_embed_code pt16 pb16 o_colored_level text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  /* Wrapper for safety */
+  #cit-main-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+   .container {
+    max-width: 1100px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+ .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }.brand-text {
+    text-align: center;
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  
+  
+   /* 1. TABLET FIX (Between 601px and 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+      padding: 0 20px 15px !important; /* Force side gaps on Tablets */
+    }
+    
+    }
+    
+    @media (max-width: 600px) {
+    .container {
+      padding: 0 10px 10px !important; /* Side gap for small screens */
+    }.title {
+      font-size: 22px;
+      padding: 0 10px;
+    }.brand-text {
+      font-size: 14px;
+      padding: 0 15px;
+    }
+    }
+    
+    .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+    
+    
+    </style>
+  <div id="cit-main-wrapper">
+  <div class="container">
+    <div class="title">Pranic Healing Session</div>
+
+    <div class="brand-text">
+     We hosted a Pranic Healing Session that created a calm and positive atmosphere for everyone. After the session, we introduced Auric Mills and invited guests for a high tea, where a variety of dishes made using our flour were served. Everyone really enjoyed the food and shared their feedback on the taste and quality.
+    </div>
+
+    
+
+    
+
+
+  </div>
+</div></template>
+        <div class="s_embed_code_embedded container o_not_editable"><style>
+  /* Wrapper for safety */
+  #cit-main-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+   .container {
+    max-width: 1100px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+ .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }.brand-text {
+    text-align: center;
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  
+  
+   /* 1. TABLET FIX (Between 601px and 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+      padding: 0 20px 15px !important; /* Force side gaps on Tablets */
+    }
+    
+    }
+    
+    @media (max-width: 600px) {
+    .container {
+      padding: 0 10px 10px !important; /* Side gap for small screens */
+    }.title {
+      font-size: 22px;
+      padding: 0 10px;
+    }.brand-text {
+      font-size: 14px;
+      padding: 0 15px;
+    }
+    }
+    
+    .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+    
+    
+    </style><div id="cit-main-wrapper">
+  <div class="container">
+    <div class="title">Pranic Healing Session</div>
+
+    <div class="brand-text">
+     We hosted a Pranic Healing Session that created a calm and positive atmosphere for everyone. After the session, we introduced Auric Mills and invited guests for a high tea, where a variety of dishes made using our flour were served. Everyone really enjoyed the food and shared their feedback on the taste and quality.
+    </div>
+
+    
+
+    
+
+
+  </div>
+</div></div>
+    </section><section class="s_embed_code pt16 o_colored_level pb40 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+.video-gridd {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .video-gridd {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
+}
+
+.video-cardd {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.video-cardd video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.video-cardd:hover video {
+  transform: scale(1.1);
+}
+
+.sound-labell {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.video-cardd:hover .sound-labell {
+  opacity: 1;
+}
+</style>
+
+<div class="video-gridd" id="videoGridd"/>
+
+<script>
+(function () {
+  const videoUrlss = [
+    "custom_website/static/src/video/pranic_healing_1.mp4",
+    "custom_website/static/src/video/pranic_healing_2.mp4",
+    "custom_website/static/src/video/pranic_healing_3.mp4",
+  ];
+
+  const gridd = document.getElementById("videoGridd");
+
+  let currentPlaying = null;
+  let currentWithAudio = null;
+
+  videoUrlss.forEach((url) =&gt; {
+    const cardd = document.createElement("div");
+    cardd.className = "video-cardd";
+
+    const videoo = document.createElement("video");
+    videoo.src = url;
+    videoo.muted = true;
+    videoo.setAttribute("muted", "");      
+    videoo.setAttribute("playsinline", "");
+    videoo.setAttribute("autoplay", "");
+    videoo.loop = true;
+    videoo.preload = "auto";
+    
+    videoo.play().then(() =&gt; {
+        videoo.pause(); 
+    }).catch(err =&gt; {
+        console.log("Autoplay prevented, but frame should still show.");
+    });
+
+    const labell = document.createElement("div");
+    labell.className = "sound-labell";
+    labell.innerText = "Click for sound";
+
+    cardd.addEventListener("mouseenter", () =&gt; {
+      if (currentPlaying &amp;&amp; currentPlaying !== videoo) {
+        currentPlaying.pause();
+        currentPlaying.currentTime = 0;
+      }
+
+      videoo.muted = true;
+      videoo.play();
+      currentPlaying = videoo;
+    });
+
+    cardd.addEventListener("mouseleave", () =&gt; {
+      if (videoo !== currentWithAudio) {
+        videoo.pause();
+        videoo.currentTime = 0;
+      }
+    });
+
+    cardd.addEventListener("click", () =&gt; {
+      if (currentWithAudio &amp;&amp; currentWithAudio !== videoo) {
+        currentWithAudio.muted = true;
+        currentWithAudio.pause();
+        currentWithAudio.currentTime = 0;
+      }
+
+      if (currentWithAudio === videoo) {
+        videoo.muted = true;
+        currentWithAudio = null;
+        return;
+      }
+
+      videoo.muted = false;
+      videoo.play();
+      currentWithAudio = videoo;
+    });
+
+    cardd.appendChild(videoo);
+    cardd.appendChild(labell);
+    gridd.appendChild(cardd);
+  });
+})();
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container"><style>
+.video-gridd {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .video-gridd {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
+}
+
+.video-cardd {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.video-cardd video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.video-cardd:hover video {
+  transform: scale(1.1);
+}
+
+.sound-labell {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.video-cardd:hover .sound-labell {
+  opacity: 1;
+}
+</style><div class="video-gridd" id="videoGridd"/><script>
+(function () {
+  const videoUrlss = [
+    "custom_website/static/src/video/pranic_healing_1.mp4",
+    "custom_website/static/src/video/pranic_healing_2.mp4",
+    "custom_website/static/src/video/pranic_healing_3.mp4",
+  ];
+
+  const gridd = document.getElementById("videoGridd");
+
+  let currentPlaying = null;
+  let currentWithAudio = null;
+
+  videoUrlss.forEach((url) =&gt; {
+    const cardd = document.createElement("div");
+    cardd.className = "video-cardd";
+
+    const videoo = document.createElement("video");
+    videoo.src = url;
+    videoo.muted = true;
+    videoo.setAttribute("muted", "");      
+    videoo.setAttribute("playsinline", "");
+    videoo.setAttribute("autoplay", "");
+    videoo.loop = true;
+    videoo.preload = "auto";
+    
+    videoo.play().then(() =&gt; {
+        videoo.pause(); 
+    }).catch(err =&gt; {
+        console.log("Autoplay prevented, but frame should still show.");
+    });
+
+    const labell = document.createElement("div");
+    labell.className = "sound-labell";
+    labell.innerText = "Click for sound";
+
+    cardd.addEventListener("mouseenter", () =&gt; {
+      if (currentPlaying &amp;&amp; currentPlaying !== videoo) {
+        currentPlaying.pause();
+        currentPlaying.currentTime = 0;
+      }
+
+      videoo.muted = true;
+      videoo.play();
+      currentPlaying = videoo;
+    });
+
+    cardd.addEventListener("mouseleave", () =&gt; {
+      if (videoo !== currentWithAudio) {
+        videoo.pause();
+        videoo.currentTime = 0;
+      }
+    });
+
+    cardd.addEventListener("click", () =&gt; {
+      if (currentWithAudio &amp;&amp; currentWithAudio !== videoo) {
+        currentWithAudio.muted = true;
+        currentWithAudio.pause();
+        currentWithAudio.currentTime = 0;
+      }
+
+      if (currentWithAudio === videoo) {
+        videoo.muted = true;
+        currentWithAudio = null;
+        return;
+      }
+
+      videoo.muted = false;
+      videoo.play();
+      currentWithAudio = videoo;
+    });
+
+    cardd.appendChild(videoo);
+    cardd.appendChild(labell);
+    gridd.appendChild(cardd);
+  });
+})();
+</script></div>
+    </section><section class="s_embed_code pt16 pb16 o_colored_level text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  /* Wrapper for safety */
+  #cit-main-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+   .container {
+    max-width: 1100px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+ .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }.brand-text {
+    text-align: center;
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  
+  
+   /* 1. TABLET FIX (Between 601px and 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+      padding: 0 20px 15px !important; /* Force side gaps on Tablets */
+    }
+    
+    }
+    
+    @media (max-width: 600px) {
+    .container {
+      padding: 0 10px 10px !important; /* Side gap for small screens */
+    }.title {
+      font-size: 22px;
+      padding: 0 10px;
+    }.brand-text {
+      font-size: 14px;
+      padding: 0 15px;
+    }
+    }
+    
+    .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+    
+    
+    </style>
+  <div id="cit-main-wrapper">
+  <div class="container">
+    <div class="title">JLF (Jaipur Literature Festival)</div>
+
+    <div class="brand-text">
+     At Jaipur Literature Festival 2026, many visitors stopped by our stall to see how our flour is made. They also tasted freshly prepared rotis made using Auric Mills flour and truly enjoyed the taste. It reminded many of how their dadi and nani used to prepare flour at home, making the experience both healthy and nostalgic.
+    </div>
+
+    
+
+    
+
+
+  </div>
+</div></template>
+        <div class="s_embed_code_embedded container o_not_editable"><style>
+  /* Wrapper for safety */
+  #cit-main-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+   .container {
+    max-width: 1100px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+ .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }.brand-text {
+    text-align: center;
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  
+  
+   /* 1. TABLET FIX (Between 601px and 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+      padding: 0 20px 15px !important; /* Force side gaps on Tablets */
+    }
+    
+    }
+    
+    @media (max-width: 600px) {
+    .container {
+      padding: 0 10px 10px !important; /* Side gap for small screens */
+    }.title {
+      font-size: 22px;
+      padding: 0 10px;
+    }.brand-text {
+      font-size: 14px;
+      padding: 0 15px;
+    }
+    }
+    
+    .title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+    
+    
+    </style><div id="cit-main-wrapper">
+  <div class="container">
+    <div class="title">JLF (Jaipur Literature Festival)</div>
+
+    <div class="brand-text">
+     At Jaipur Literature Festival 2026, many visitors stopped by our stall to see how our flour is made. They also tasted freshly prepared rotis made using Auric Mills flour and truly enjoyed the taste. It reminded many of how their dadi and nani used to prepare flour at home, making the experience both healthy and nostalgic.
+    </div>
+
+    
+
+    
+
+
+  </div>
+</div></div>
+    </section><section class="s_embed_code pt16 o_colored_level pb40 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+    padding: 0 15px; 
+  }
+}
+
+.video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.video-card:hover video {
+  transform: scale(1.1);
+}
+
+.sound-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.video-card:hover .sound-label {
+  opacity: 1;
+}
+</style>
+
+<div class="video-grid" id="videoGrid"/>
+
+<script>
+(function () {
+  const videoUrls = [
+    "custom_website/static/src/video/video1.mp4",
+    "custom_website/static/src/video/video2.mp4",
+    "custom_website/static/src/video/video3.mp4",
+    "custom_website/static/src/video/video4.mp4",
+  ];
+
+  const grid = document.getElementById("videoGrid");
+
+  let currentPlaying = null;
+  let currentWithAudio = null;
+
+  videoUrls.forEach((url) =&gt; {
+    const card = document.createElement("div");
+    card.className = "video-card";
+
+    const video = document.createElement("video");
+    video.src = url;
+    video.setAttribute("muted", "");      
+    video.setAttribute("playsinline", "");
+    video.setAttribute("autoplay", "");
+    video.muted = true;
+    video.loop = true;
+    video.preload = "auto";
+    
+     video.play().then(() =&gt; {
+        video.pause(); 
+    }).catch(err =&gt; {
+        console.log("Autoplay prevented, but frame should still show.");
+    });
+
+    const label = document.createElement("div");
+    label.className = "sound-label";
+    label.innerText = "Click for sound";
+
+    card.addEventListener("mouseenter", () =&gt; {
+      if (currentPlaying &amp;&amp; currentPlaying !== video) {
+        currentPlaying.pause();
+        currentPlaying.currentTime = 0;
+      }
+
+      video.muted = true;
+      video.play();
+      currentPlaying = video;
+    });
+
+    card.addEventListener("mouseleave", () =&gt; {
+      if (video !== currentWithAudio) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+
+    card.addEventListener("click", () =&gt; {
+      if (currentWithAudio &amp;&amp; currentWithAudio !== video) {
+        currentWithAudio.muted = true;
+        currentWithAudio.pause();
+        currentWithAudio.currentTime = 0;
+      }
+
+      if (currentWithAudio === video) {
+        video.muted = true;
+        currentWithAudio = null;
+        return;
+      }
+
+      video.muted = false;
+      video.play();
+      currentWithAudio = video;
+    });
+
+    card.appendChild(video);
+    card.appendChild(label);
+    grid.appendChild(card);
+  });
+})();
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container"><style>
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+    padding: 0 15px; 
+  }
+}
+
+.video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.video-card:hover video {
+  transform: scale(1.1);
+}
+
+.sound-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.video-card:hover .sound-label {
+  opacity: 1;
+}
+</style><div class="video-grid" id="videoGrid"/><script>
+(function () {
+  const videoUrls = [
+    "custom_website/static/src/video/video1.mp4",
+    "custom_website/static/src/video/video2.mp4",
+    "custom_website/static/src/video/video3.mp4",
+    "custom_website/static/src/video/video4.mp4",
+  ];
+
+  const grid = document.getElementById("videoGrid");
+
+  let currentPlaying = null;
+  let currentWithAudio = null;
+
+  videoUrls.forEach((url) =&gt; {
+    const card = document.createElement("div");
+    card.className = "video-card";
+
+    const video = document.createElement("video");
+    video.src = url;
+    video.setAttribute("muted", "");      
+    video.setAttribute("playsinline", "");
+    video.setAttribute("autoplay", "");
+    video.muted = true;
+    video.loop = true;
+    video.preload = "auto";
+    
+     video.play().then(() =&gt; {
+        video.pause(); 
+    }).catch(err =&gt; {
+        console.log("Autoplay prevented, but frame should still show.");
+    });
+
+    const label = document.createElement("div");
+    label.className = "sound-label";
+    label.innerText = "Click for sound";
+
+    card.addEventListener("mouseenter", () =&gt; {
+      if (currentPlaying &amp;&amp; currentPlaying !== video) {
+        currentPlaying.pause();
+        currentPlaying.currentTime = 0;
+      }
+
+      video.muted = true;
+      video.play();
+      currentPlaying = video;
+    });
+
+    card.addEventListener("mouseleave", () =&gt; {
+      if (video !== currentWithAudio) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+
+    card.addEventListener("click", () =&gt; {
+      if (currentWithAudio &amp;&amp; currentWithAudio !== video) {
+        currentWithAudio.muted = true;
+        currentWithAudio.pause();
+        currentWithAudio.currentTime = 0;
+      }
+
+      if (currentWithAudio === video) {
+        video.muted = true;
+        currentWithAudio = null;
+        return;
+      }
+
+      video.muted = false;
+      video.play();
+      currentWithAudio = video;
+    });
+
+    card.appendChild(video);
+    card.appendChild(label);
+    grid.appendChild(card);
+  });
+})();
+</script></div>
+    </section><section class="s_carousel_intro_wrapper p-0 d-lg-none o_snippet_desktop_invisible" data-snippet="s_carousel_intro" data-name="Carousel Intro" data-invisible="1">
+        <div class="s_carousel_intro s_carousel_default carousel slide carousel-dark o_colored_level pointer-event" data-bs-ride="true" data-bs-interval="10000" id="myCarousel1768214614630" style="background-color: rgb(249, 250, 251);">
+            
+            <div class="carousel-inner">
+                
+                <div class="s_carousel_intro_item carousel-item o_cc o_cc1 px-0 o_colored_level active pt0 pb0" data-name="Slide">
+                    <div class="container-fluid">
+                        <div class="row o_grid_mode" data-row-count="8">
+                            
+                            
+                            <div class="o_grid_item o_grid_item_image g-height-4 g-col-lg-6 col-lg-6 o_colored_level" style="z-index: 3; grid-area: 5 / 7 / 9 / 13;" data-name="Block">
+                                <img src="/web/image/2583-2d0432eb/1000141568.webp" alt="" data-attachment-id="2582" class="img img-fluid o_we_custom_image" style="width: 100% !important;" data-format-mimetype="image/webp" data-original-id="2582" data-original-src="/web/image/2582-caf99cb3/1000141568.jpeg" data-mimetype-before-conversion="image/jpeg" data-resize-width="690" data-mimetype="image/webp" loading="lazy"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+            </div>
+            <div class="o_horizontal_controllers container position-absolute start-50 bottom-0 translate-middle-x w-100 mb-md-4 o_not_editable">
+                <div class="o_horizontal_controllers_row row gap-3 gap-lg-5 justify-content-between flex-nowrap flex-row-reverse mx-0">
+                    
+                    <div class="o_arrows_wrapper gap-2 w-auto p-0 o_colored_level">
+                        <button class="carousel-control-prev o_not_editable d-none o_we_no_overlay" aria-label="Previous" title="Previous" data-bs-target="#myCarousel1768214614630">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"/>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next o_not_editable d-none o_we_no_overlay" aria-label="Next" title="Next" data-bs-target="#myCarousel1768214614630">
+                            <span class="carousel-control-next-icon" aria-hidden="true"/>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                    <div class="s_carousel_indicators_numbers carousel-indicators align-items-center flex-shrink-1 w-auto o_colored_level d-none o_we_no_overlay">
+                        <button type="button" class="active" aria-label="Carousel indicator" data-bs-target="#myCarousel1768214614630" data-bs-slide-to="0" aria-current="true"/>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="s_embed_code o_colored_level pb32 pt48 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  /* ===== SECTION HEADER ===== */
+  .tm-section-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .tm-section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #40362b;
+    margin-bottom: 6px;
+  }
+
+  /* ===== CAROUSEL CORE ===== */
+  .tm-carousel-wrapper {
+    overflow: hidden;
+    width: 100%; /* Full screen width */
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .tm-carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    will-change: transform;
+    cursor: grab;
+  }
+
+  .tm-testimonial-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    /* Flexible width: Desktop pe 300px, Mobile pe thoda chota */
+    width: 300px;
+    min-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tm-quote {
+    font-size: 28px;
+    color: #c57b36;
+    margin-bottom: 10px;
+  }
+
+  .tm-text {
+    font-size: 14px;
+    color: #4f4f4f;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .tm-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  .tm-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Round image fix */
+    border: 2px solid #f0e6dd;
+  }
+
+  .tm-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #40362b;
+  }
+
+  .tm-role {
+    font-size: 12px;
+    color: #7a6a5a;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .tm-testimonial-card {
+      width: 260px;
+      min-width: 260px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tm-testimonial-card {
+      width: 240px;
+      min-width: 240px;
+    }
+    .tm-section-title {
+      font-size: 20px;
+    }
+  }
+</style>
+
+<div class="tm-section-header">
+  <div class="tm-section-title">Note From Health Experts</div>
+</div>
+
+<div class="tm-carousel-wrapper">
+  <div class="tm-carousel-track" id="master-track" data-speed="0.8">
+    <div class="tm-testimonial-card">
+      <div class="tm-quote">❝</div>
+      <p class="tm-text">
+        Auric Mills’ slow stone-milling preserves nutrients, ensures purity,
+        traceable sourcing, digestible, and nutritious flour.
+      </p>
+      <div class="tm-profile">
+        <img src="https://auricmills.com/web/image/1827-86530bc2/dr-rajesh-bhojwani-digestive-obesity-and-cancer-surgery-clinic-c-scheme-jaipur-general-surgeon-doctors-e1acu5q4dq.webp" loading="lazy"/>
+        <div class="tm-name">Dr. Rajesh Bhojwani</div>
+        <div class="tm-role">Surgical Gastroenterologist</div>
+      </div>
+    </div>
+
+    <div class="tm-testimonial-card">
+      <div class="tm-quote">❝</div>
+      <p class="tm-text">
+        As a dietitian, I recommend Auric Mills’ chemical-free, fibre-rich,
+        traditional stone-ground flours for superior health.
+      </p>
+      <div class="tm-profile">
+        <img src="https://auricmills.com/web/image/2051-6e182053/niveta%20bajaj%20%281%29.webp" loading="lazy"/>
+        <div class="tm-name">Niveta Bajaj Arora</div>
+        <div class="tm-role">Dietician</div>
+      </div>
+    </div>
+
+    <div class="tm-testimonial-card">
+      <div class="tm-quote">❝</div>
+      <p class="tm-text">
+        Auric Mills delivers honest, unadulterated, nutrient-preserving
+        flour—clean, digestible, gut-friendly, and naturally wholesome.
+      </p>
+      <div class="tm-profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="tm-name">Jyoti Mathur</div>
+        <div class="tm-role">Dietician</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const track = document.getElementById("master-track");
+    const cards = Array.from(track.children);
+    
+    // 1. Automatic Cloning: Jab tak track screen se bada na ho jaye, cards copy karo
+    // Isse right side ki empty space bhar jayegi
+    cards.forEach(card =&gt; {
+      const clone = card.cloneNode(true);
+      track.appendChild(clone);
+    });
+    
+    // Ek baar aur clone for safety on ultra-wide screens
+    cards.forEach(card =&gt; {
+      const clone = card.cloneNode(true);
+      track.appendChild(clone);
+    });
+
+    let speed = parseFloat(track.dataset.speed) || 0.8;
+    let pos = 0;
+    let paused = false;
+
+    function animate() {
+      if (!paused) {
+        pos -= speed;
+        track.style.transform = `translateX(${pos}px)`;
+
+        const firstCard = track.children[0];
+        const gap = parseInt(window.getComputedStyle(track).gap) || 20;
+        const totalMoveWidth = firstCard.offsetWidth + gap;
+
+        // Infinite loop logic: pehla card last mein move karo smoothly
+        if (Math.abs(pos) &gt;= totalMoveWidth) {
+          pos += totalMoveWidth;
+          track.appendChild(firstCard);
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    track.addEventListener("mouseenter", () =&gt; (paused = true));
+    track.addEventListener("mouseleave", () =&gt; (paused = false));
+    track.addEventListener("touchstart", () =&gt; (paused = true));
+    track.addEventListener("touchend", () =&gt; (paused = false));
+
+    animate();
+  })();
+</script></template>
+        <div class="s_embed_code_embedded o_not_editable container"><style>
+  /* ===== SECTION HEADER ===== */
+  .tm-section-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .tm-section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #40362b;
+    margin-bottom: 6px;
+  }
+
+  /* ===== CAROUSEL CORE ===== */
+  .tm-carousel-wrapper {
+    overflow: hidden;
+    width: 100%; /* Full screen width */
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .tm-carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    will-change: transform;
+    cursor: grab;
+  }
+
+  .tm-testimonial-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    /* Flexible width: Desktop pe 300px, Mobile pe thoda chota */
+    width: 300px;
+    min-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tm-quote {
+    font-size: 28px;
+    color: #c57b36;
+    margin-bottom: 10px;
+  }
+
+  .tm-text {
+    font-size: 14px;
+    color: #4f4f4f;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .tm-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  .tm-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Round image fix */
+    border: 2px solid #f0e6dd;
+  }
+
+  .tm-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #40362b;
+  }
+
+  .tm-role {
+    font-size: 12px;
+    color: #7a6a5a;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .tm-testimonial-card {
+      width: 260px;
+      min-width: 260px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tm-testimonial-card {
+      width: 240px;
+      min-width: 240px;
+    }
+    .tm-section-title {
+      font-size: 20px;
+    }
+  }
+</style><div class="tm-section-header">
+  <div class="tm-section-title">Note From Health Experts</div>
+</div><div class="tm-carousel-wrapper">
+  <div class="tm-carousel-track" id="master-track" data-speed="0.8">
+    <div class="tm-testimonial-card">
+      <div class="tm-quote">❝</div>
+      <p class="tm-text">
+        Auric Mills’ slow stone-milling preserves nutrients, ensures purity,
+        traceable sourcing, digestible, and nutritious flour.
+      </p>
+      <div class="tm-profile">
+        <img src="https://auricmills.com/web/image/1827-86530bc2/dr-rajesh-bhojwani-digestive-obesity-and-cancer-surgery-clinic-c-scheme-jaipur-general-surgeon-doctors-e1acu5q4dq.webp" loading="lazy"/>
+        <div class="tm-name">Dr. Rajesh Bhojwani</div>
+        <div class="tm-role">Surgical Gastroenterologist</div>
+      </div>
+    </div>
+
+    <div class="tm-testimonial-card">
+      <div class="tm-quote">❝</div>
+      <p class="tm-text">
+        As a dietitian, I recommend Auric Mills’ chemical-free, fibre-rich,
+        traditional stone-ground flours for superior health.
+      </p>
+      <div class="tm-profile">
+        <img src="https://auricmills.com/web/image/2051-6e182053/niveta%20bajaj%20%281%29.webp" loading="lazy"/>
+        <div class="tm-name">Niveta Bajaj Arora</div>
+        <div class="tm-role">Dietician</div>
+      </div>
+    </div>
+
+    <div class="tm-testimonial-card">
+      <div class="tm-quote">❝</div>
+      <p class="tm-text">
+        Auric Mills delivers honest, unadulterated, nutrient-preserving
+        flour—clean, digestible, gut-friendly, and naturally wholesome.
+      </p>
+      <div class="tm-profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="tm-name">Jyoti Mathur</div>
+        <div class="tm-role">Dietician</div>
+      </div>
+    </div>
+  </div>
+</div><script>
+  (function () {
+    const track = document.getElementById("master-track");
+    const cards = Array.from(track.children);
+    
+    // 1. Automatic Cloning: Jab tak track screen se bada na ho jaye, cards copy karo
+    // Isse right side ki empty space bhar jayegi
+    cards.forEach(card =&gt; {
+      const clone = card.cloneNode(true);
+      track.appendChild(clone);
+    });
+    
+    // Ek baar aur clone for safety on ultra-wide screens
+    cards.forEach(card =&gt; {
+      const clone = card.cloneNode(true);
+      track.appendChild(clone);
+    });
+
+    let speed = parseFloat(track.dataset.speed) || 0.8;
+    let pos = 0;
+    let paused = false;
+
+    function animate() {
+      if (!paused) {
+        pos -= speed;
+        track.style.transform = `translateX(${pos}px)`;
+
+        const firstCard = track.children[0];
+        const gap = parseInt(window.getComputedStyle(track).gap) || 20;
+        const totalMoveWidth = firstCard.offsetWidth + gap;
+
+        // Infinite loop logic: pehla card last mein move karo smoothly
+        if (Math.abs(pos) &gt;= totalMoveWidth) {
+          pos += totalMoveWidth;
+          track.appendChild(firstCard);
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    track.addEventListener("mouseenter", () =&gt; (paused = true));
+    track.addEventListener("mouseleave", () =&gt; (paused = false));
+    track.addEventListener("touchstart", () =&gt; (paused = true));
+    track.addEventListener("touchend", () =&gt; (paused = false));
+
+    animate();
+  })();
+</script></div>
+    </section><section class="s_embed_code o_colored_level pb0 pt32 text-center" data-snippet="s_embed_code" data-name="Embed Code" style="background-color: rgb(249, 250, 251);">
+        <template class="s_embed_code_saved"><style>
+  /* ===== SECTION HEADER ===== */
+  .carousel-section-header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .carousel-section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #40362b;
+    margin-bottom: 6px;
+  }
+
+  .carousel-section-desc {
+    font-size: 15px;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+  }
+
+  /* ===== CAROUSEL ===== */
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .testimonial-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    width: 260px;
+    min-width: 260px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  .quote-icon {
+    font-size: 28px;
+    color: #c57b36;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: #4f4f4f;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .profile-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #40362b;
+  }
+
+  .profile-role {
+    font-size: 12px;
+    color: #7a6a5a;
+  }
+
+  @media (max-width: 500px) {
+    .testimonial-card {
+      width: 220px;
+      min-width: 220px;
+    }
+
+    .carousel-section-title {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<div class="carousel-section-header">
+  <div class="carousel-section-title">Real Kitchen Feedback</div>
+</div>
+
+<div class="carousel-container">
+  <div class="carousel-track">
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        The wheat flour was tasty to begin with, there was a certain aromatic
+        freshness to it...
+      </p>
+      <div class="profile">
+        <img src="https://i.pravatar.cc/40?img=12" loading="lazy"/>
+        <div class="profile-name">Vikram Joshi</div>
+        <div class="profile-role">
+          Textile Technologist &amp; Owner, Rangotri Jaipur
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        Amazing bread made from your emmer wheat flour — really wonderful!
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Mr. Alok Sharma</div>
+        <div class="profile-role">Steinmuhle Artisan Baker</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        Jowar atta rotis are really tasty and fluffy. I felt lighter instantly.
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Manoj Gupta</div>
+        <div class="profile-role">IT Hardware Businessman</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        First time trying Auric Mills flour, rotis felt soft &amp; tasty.
+      </p>
+      <div class="profile">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQGSSgL6QmRwVA/profile-displayphoto-scale_400_400/B56Zq2m5a1IYAg-/0/1764000242907?e=2147483647&amp;v=beta&amp;t=5u0_21aoIVOhYCvFC1smMwLguBFVhAozZWPS011h_E4" loading="lazy"/>
+        <div class="profile-name">Mr. Irfan Khan</div>
+        <div class="profile-role">Director, Runners Club Jaipur</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        Auric Mills atta — soft texture, great taste, no heaviness.
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Veena Agrawal</div>
+        <div class="profile-role">Food Enthusiast</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        We now buy flour only from Auric Mills. It’s worth it.
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Kiran Bhosle</div>
+        <div class="profile-role">Working Mom</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const track = document.querySelector(".carousel-track");
+    let speed = 0.5;
+    let pos = 0;
+    let paused = false;
+
+    function loop() {
+      if (!paused) {
+        pos -= speed;
+        track.style.transform = `translateX(${pos}px)`;
+
+        const first = track.children[0];
+        const gap = parseInt(getComputedStyle(track).gap) || 20;
+        const width = first.offsetWidth + gap;
+
+        if (Math.abs(pos) &gt;= width) {
+          pos += width;
+          track.appendChild(first);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+
+    track.addEventListener("mouseenter", () =&gt; (paused = true));
+    track.addEventListener("mouseleave", () =&gt; (paused = false));
+    track.addEventListener("touchstart", () =&gt; (paused = true));
+    track.addEventListener("touchend", () =&gt; (paused = false));
+
+    loop();
+  })();
+</script></template>
+        <div class="s_embed_code_embedded container o_not_editable"><style>
+  /* ===== SECTION HEADER ===== */
+  .carousel-section-header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .carousel-section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #40362b;
+    margin-bottom: 6px;
+  }
+
+  .carousel-section-desc {
+    font-size: 15px;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+  }
+
+  /* ===== CAROUSEL ===== */
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    margin: 30px 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .testimonial-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    width: 260px;
+    min-width: 260px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  .quote-icon {
+    font-size: 28px;
+    color: #c57b36;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: #4f4f4f;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .profile-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #40362b;
+  }
+
+  .profile-role {
+    font-size: 12px;
+    color: #7a6a5a;
+  }
+
+  @media (max-width: 500px) {
+    .testimonial-card {
+      width: 220px;
+      min-width: 220px;
+    }
+
+    .carousel-section-title {
+      font-size: 22px;
+    }
+  }
+</style><div class="carousel-section-header">
+  <div class="carousel-section-title">Real Kitchen Feedback</div>
+</div><div class="carousel-container">
+  <div class="carousel-track">
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        The wheat flour was tasty to begin with, there was a certain aromatic
+        freshness to it...
+      </p>
+      <div class="profile">
+        <img src="https://i.pravatar.cc/40?img=12" loading="lazy"/>
+        <div class="profile-name">Vikram Joshi</div>
+        <div class="profile-role">
+          Textile Technologist &amp;amp; Owner, Rangotri Jaipur
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        Amazing bread made from your emmer wheat flour — really wonderful!
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Mr. Alok Sharma</div>
+        <div class="profile-role">Steinmuhle Artisan Baker</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        Jowar atta rotis are really tasty and fluffy. I felt lighter instantly.
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Manoj Gupta</div>
+        <div class="profile-role">IT Hardware Businessman</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        First time trying Auric Mills flour, rotis felt soft &amp;amp; tasty.
+      </p>
+      <div class="profile">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQGSSgL6QmRwVA/profile-displayphoto-scale_400_400/B56Zq2m5a1IYAg-/0/1764000242907?e=2147483647&amp;v=beta&amp;t=5u0_21aoIVOhYCvFC1smMwLguBFVhAozZWPS011h_E4" loading="lazy"/>
+        <div class="profile-name">Mr. Irfan Khan</div>
+        <div class="profile-role">Director, Runners Club Jaipur</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        Auric Mills atta — soft texture, great taste, no heaviness.
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Veena Agrawal</div>
+        <div class="profile-role">Food Enthusiast</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-icon">❝</div>
+      <p class="testimonial-text">
+        We now buy flour only from Auric Mills. It’s worth it.
+      </p>
+      <div class="profile">
+        <img src="https://auricmills.com/web/image/2053-08e7f12c/icon-7797704_640.webp" loading="lazy"/>
+        <div class="profile-name">Kiran Bhosle</div>
+        <div class="profile-role">Working Mom</div>
+      </div>
+    </div>
+  </div>
+</div><script>
+  (function () {
+    const track = document.querySelector(".carousel-track");
+    let speed = 0.5;
+    let pos = 0;
+    let paused = false;
+
+    function loop() {
+      if (!paused) {
+        pos -= speed;
+        track.style.transform = `translateX(${pos}px)`;
+
+        const first = track.children[0];
+        const gap = parseInt(getComputedStyle(track).gap) || 20;
+        const width = first.offsetWidth + gap;
+
+        if (Math.abs(pos) &gt;= width) {
+          pos += width;
+          track.appendChild(first);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+
+    track.addEventListener("mouseenter", () =&gt; (paused = true));
+    track.addEventListener("mouseleave", () =&gt; (paused = false));
+    track.addEventListener("touchstart", () =&gt; (paused = true));
+    track.addEventListener("touchend", () =&gt; (paused = false));
+
+    loop();
+  })();
+</script></div>
+    </section><section class="s_adventure o_colored_level s_parallax_no_overflow_hidden pb32 pt32" style="position: relative; background-color: rgb(249, 250, 251);" data-snippet="s_adventure" data-name="Adventure" data-attachment-id="179" data-scroll-background-ratio="0" data-oe-shape-data="{&quot;shape&quot;:&quot;html_builder/Floats/13&quot;,&quot;colors&quot;:{&quot;c1&quot;:&quot;#FFE7CE&quot;,&quot;c2&quot;:&quot;#EFEFEF&quot;,&quot;c5&quot;:&quot;#CEC6CE&quot;},&quot;flip&quot;:[],&quot;showOnMobile&quot;:false,&quot;shapeAnimationSpeed&quot;:&quot;0&quot;}"><div class="o_we_shape o_html_builder_Floats_13" style="background-image: url(&quot;/html_editor/shape/html_builder%2FFloats%2F13.svg?c1=%23FFE7CE&amp;c2=%23EFEFEF&amp;c5=%23CEC6CE&quot;);"/>
+        
+        
+        <div class="s_allow_columns container">
+            <h1 class="display-1" style="text-align: center;"><span class="display-4-fs"><font class="text-o-color-1"><strong>Our Story</strong></font></span></h1>
+            <p style="text-align: justify;"><span style="font-size: 16px;"><em><font class="text-o-color-1">In today’s fast-paced world, Dhruv chose to slow down and revive the age-old tradition of stone-grinding flour at just 45 revolutions per minute, laying the foundation of Auric Mills. Every grain we use is free from synthetic chemicals, and traceable from farm to fork. Guided by the belief that healthy families begin with mindful food choices, we thoughtfully craft innovative flours that enhance nutrition through approaches such as grain activation and precision sprouting.&amp;nbsp;</font></em></span></p><p style="text-align: justify;"><span style="font-size: 16px;"><em><font class="text-o-color-1">Our founder, Dhruv is a Harvard MBA candidate. With the support of his family, he brings together his global food systems experience across Asia and Africa with a multigenerational grain legacy dating back to 1935. What began in our family kitchen in Jaipur has grown into a heartfelt promise - to bring back the purity, freshness, and goodness of real food.</font></em></span></p>
+            
+        </div>
+    </section></div>
+    </t>
+    </t>
