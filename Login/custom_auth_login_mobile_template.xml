@@ -1,0 +1,288 @@
+<odoo>
+    <template id="mobile_login_template" name="Mobile Verification">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+
+                                <h4 class="text-center mb-3">
+                                    Login with Mobile Number
+                                </h4>
+
+
+                                <!-- Error Message -->
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+
+                                <!-- OTP Form -->
+                                <form action="/web/mobile/verify" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <div class="mb-3 field-country-code">
+                                        <label class="form-label">Country Code</label>
+
+                                        <input type="text"
+                                            id="country_search"
+                                            class="form-control"
+                                            placeholder="Search country or code..."
+                                            autocomplete="off"/>
+
+                                        <ul id="country_list"
+                                            class="list-group"
+                                            style="max-height: 200px; overflow-y: auto; display: none; margin-top: 6px;"></ul>
+
+                                        <input type="hidden" name="country_code" id="country_code"/>
+                                        <input type="hidden" name="country_name" id="country_name"/>
+                                        <input type="hidden" name="country_id" id="country_id"/>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="mobile" class="form-label">Mobile Number</label>
+                                        <input
+                                            type="text"
+                                            id="mobile"
+                                            name="mobile"
+                                            class="form-control"
+                                            placeholder="Mobile number"
+                                            maxlength="20"
+                                            required="required"
+                                        />
+                                    </div>
+                                    <!-- <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <a class="btn btn-link btn-xl" tabindex="1" t-attf-href="/web/mobile/forgot-password">Forgot Password ?</a>
+                                        <input
+                                            type="text"
+                                            id="password"
+                                            name="password"
+                                            class="form-control"
+                                            placeholder="Password"
+                                            required="required"
+                                        />
+                                        
+                                    </div> -->
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            Verify Mobile
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <a class="btn btn-link btn-xl" tabindex="1" t-attf-href="/web/login">Login with email ?</a>
+                </div>
+            </div>
+
+            <xpath expr="//form" position="inside">
+                <script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const searchInput = document.getElementById("country_search");
+                        const countryList = document.getElementById("country_list");
+                        const countryCodeInput = document.getElementById("country_code");
+                        const countryNameInput = document.getElementById("country_name");
+                        const countryIdInput = document.getElementById("country_id");
+
+                        if (!searchInput || !countryList || !countryCodeInput || !countryNameInput) {
+                            return;
+                        }
+
+                        let countries = [];
+
+                        function renderCountries(filteredCountries) {
+                            countryList.innerHTML = "";
+
+                            if (!filteredCountries.length) {
+                                countryList.style.display = "none";
+                                return;
+                            }
+
+                            filteredCountries.forEach(function (country) {
+                                const li = document.createElement("li");
+                                li.className = "list-group-item list-group-item-action";
+                                li.style.cursor = "pointer";
+                                li.textContent = country.code + " (" + country.name + ")";
+
+                                li.addEventListener("click", function () {
+                                    searchInput.value = country.code + " (" + country.name + ")";
+                                    countryCodeInput.value = country.code;
+                                    countryNameInput.value = country.name;
+                                    countryIdInput.value = country.id;
+                                    countryList.style.display = "none";
+                                });
+
+                                countryList.appendChild(li);
+                            });
+
+                            countryList.style.display = "block";
+                        }
+
+                        fetch("/api/countries")
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                                countries = data.result || [];
+
+                                const india = countries.find(c => c.name.toLowerCase() === "india" || c.code === "+91");
+                                if (india) {
+                                    searchInput.value = india.code + " (" + india.name + ")";
+                                    countryCodeInput.value = india.code;
+                                    countryNameInput.value = india.name;
+                                    countryIdInput.value = india.id;
+                                }
+                            })
+                            .catch(function (error) {
+                                console.error("Error fetching countries:", error);
+                            });
+
+                        searchInput.addEventListener("focus", function () {
+                            renderCountries(countries);
+                        });
+
+                        searchInput.addEventListener("input", function () {
+                            const value = this.value.toLowerCase().trim();
+
+                            const filtered = countries.filter(function (country) {
+                                return (
+                                    country.name.toLowerCase().includes(value) ||
+                                    country.code.toLowerCase().includes(value)
+                                );
+                            });
+
+                            renderCountries(filtered);
+                        });
+
+                        document.addEventListener("click", function (event) {
+                            if (!searchInput.contains(event.target) &amp;&amp; !countryList.contains(event.target)) {
+                                countryList.style.display = "none";
+                            }
+                        });
+                    });
+                </script>
+            </xpath>
+        </t>
+    </template>
+
+
+    <template id="mobile_forgot_password_template" name="Mobile Forgot Password">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+
+                                <h4 class="text-center mb-3">
+                                    Forgot Password ?
+                                </h4>
+
+
+                                <!-- Error Message -->
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+
+                                <!-- OTP Form -->
+                                <form action="/web/mobile/confirm" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <div class="mb-3">
+                                        <label for="mobile" class="form-label">Mobile Number</label>
+                                        <input
+                                            type="text"
+                                            id="mobile"
+                                            name="mobile"
+                                            class="form-control"
+                                            placeholder="Mobile number"
+                                            maxlength="20"
+                                            required="required"
+                                        />
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            Confirm
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            <a class="btn btn-link btn-xl" tabindex="1" t-attf-href="/web/mobile-login">Back to login page</a>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="mobile_reset_password_template" name="Reset Password">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+
+                                <h4 class="text-center mb-3">
+                                    Reset Password
+                                </h4>
+
+
+                                <!-- Error Message -->
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+
+                                <!-- OTP Form -->
+                                <form action="/web/mobile/reset-password" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">New Password</label>
+                                        <input
+                                            type="text"
+                                            id="password"
+                                            name="password"
+                                            class="form-control"
+                                            placeholder="Password"
+                                            required="required"
+                                        />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                                        <input
+                                            type="text"
+                                            id="confirm_password"
+                                            name="confirm_password"
+                                            class="form-control"
+                                            placeholder="Confirm Password"
+                                            required="required"
+                                        />
+                                        
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-link btn-xl" tabindex="1" t-attf-href="/web/mobile-login">Back to login page</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
