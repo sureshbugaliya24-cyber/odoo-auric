@@ -1,0 +1,388 @@
+<odoo>
+    <template id="mobile_login_template" name="Mobile Verification">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+
+                                <h4 class="text-center mb-3">
+                                    Login with Mobile Number
+                                </h4>
+
+
+                                <!-- Error Message -->
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+
+                                <!-- OTP Form -->
+                                <form action="/web/mobile/verify" method="post" id="mobile_login_form">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <div id="ajax_error_msg" class="alert alert-danger d-none" role="alert"></div>
+
+                                    <div class="mb-3 field-country-code">
+                                        <label class="form-label">Country Code</label>
+
+                                        <input type="text"
+                                            id="country_search"
+                                            class="form-control"
+                                            placeholder="Search country or code..."
+                                            autocomplete="off"/>
+
+                                        <ul id="country_list"
+                                            class="list-group"
+                                            style="max-height: 200px; overflow-y: auto; display: none; margin-top: 6px;"></ul>
+
+                                        <input type="hidden" name="country_code" id="country_code"/>
+                                        <input type="hidden" name="country_name" id="country_name"/>
+                                        <input type="hidden" name="country_id" id="country_id"/>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="mobile" class="form-label">Mobile Number</label>
+                                        <input
+                                            type="text"
+                                            id="mobile"
+                                            name="mobile"
+                                            class="form-control"
+                                            placeholder="Mobile number"
+                                            maxlength="20"
+                                            required="required"
+                                        />
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" id="verify_mobile_btn" class="btn btn-primary">
+                                            Verify Mobile
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <a class="btn btn-link btn-xl" tabindex="1" 
+                t-attf-href="/web/login#{'?redirect=' + request.params.get('redirect') if request.params.get('redirect') else ''}">
+                Login with email ?
+                </a>
+
+                <div id="or_separator" class="text-center my-3 text-gray d-none">
+                    -- or --
+                </div>
+
+                <a id="signup_link_container" class="btn btn-link btn-xl d-none" 
+                t-attf-href="/web/signup#{'?redirect=' + request.params.get('redirect') if request.params.get('redirect') else ''}">
+                    Don't have an account? Sign Up Now
+                </a>
+
+            </div></div>
+
+            <xpath expr="//form" position="inside">
+                <script type="text/javascript">
+                // <![CDATA[
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const searchInput = document.getElementById("country_search");
+                        const countryList = document.getElementById("country_list");
+                        const countryCodeInput = document.getElementById("country_code");
+                        const countryNameInput = document.getElementById("country_name");
+                        const countryIdInput = document.getElementById("country_id");
+                        
+                        // New logic elements
+                        const mobileForm = document.querySelector('form[action="/web/mobile/verify"]');
+                        const mobileInput = document.getElementById("mobile");
+                        const errorContainer = document.getElementById("ajax_error_msg");
+
+                        if (!searchInput || !countryList || !countryCodeInput || !countryNameInput) {
+                            return;
+                        }
+
+                        let countries = [];
+
+                        function renderCountries(filteredCountries) {
+                            countryList.innerHTML = "";
+
+                            if (!filteredCountries.length) {
+                                countryList.style.display = "none";
+                                return;
+                            }
+
+                            filteredCountries.forEach(function (country) {
+                                const li = document.createElement("li");
+                                li.className = "list-group-item list-group-item-action";
+                                li.style.cursor = "pointer";
+                                li.textContent = country.code + " (" + country.name + ")";
+
+                                li.addEventListener("click", function () {
+                                    searchInput.value = country.code + " (" + country.name + ")";
+                                    countryCodeInput.value = country.code;
+                                    countryNameInput.value = country.name;
+                                    countryIdInput.value = country.id;
+                                    countryList.style.display = "none";
+                                });
+
+                                countryList.appendChild(li);
+                            });
+
+                            countryList.style.display = "block";
+                        }
+
+                        fetch("/api/countries")
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                                countries = data.result || [];
+
+                                const india = countries.find(c => c.name.toLowerCase() === "india" || c.code === "+91");
+                                if (india) {
+                                    searchInput.value = india.code + " (" + india.name + ")";
+                                    countryCodeInput.value = india.code;
+                                    countryNameInput.value = india.name;
+                                    countryIdInput.value = india.id;
+                                }
+                            })
+                            .catch(function (error) {
+                                console.error("Error fetching countries:", error);
+                            });
+
+                        searchInput.addEventListener("focus", function () {
+                            renderCountries(countries);
+                        });
+
+                        searchInput.addEventListener("input", function () {
+                            const value = this.value.toLowerCase().trim();
+
+                            const filtered = countries.filter(function (country) {
+                                return (
+                                    country.name.toLowerCase().includes(value) ||
+                                    country.code.toLowerCase().includes(value)
+                                );
+                            });
+
+                            renderCountries(filtered);
+                        });
+
+                        document.addEventListener("click", function (event) {
+                            if (!searchInput.contains(event.target) && !countryList.contains(event.target)) {
+                                countryList.style.display = "none";
+                            }
+                        });
+
+                        // Handle Mobile Verification Error (AJAX)
+
+                        if (mobileForm) {
+    mobileForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Process ko rokein
+
+    const mobileValue = mobileInput ? mobileInput.value.trim() : "";
+    const countryIdValue = countryIdInput ? countryIdInput.value : "";
+    
+    const orSeparator = document.getElementById("or_separator");
+    const signupLink = document.getElementById("signup_link_container");
+
+    // --- Clean Redirect Logic ---
+    const urlParams = new URLSearchParams(window.location.search);
+    // decodeURIComponent use karke raw value uthayein (e.g. /shop/checkout)
+    let redirectParam = urlParams.get('redirect') ? decodeURIComponent(urlParams.get('redirect')) : null;
+    
+    let signUpUrl = "/web/signup";
+    let verifyUrl = "/web/mobile/verify";
+
+    if (redirectParam) {
+        // Bina encode kiye direct attach karein "clean" URL ke liye
+        const queryStr = "?redirect=" + redirectParam;
+        signUpUrl += queryStr;
+        verifyUrl += queryStr;
+    }
+
+    if (!mobileValue || !countryIdValue) {
+        if (errorContainer) {
+            errorContainer.innerHTML = "Please enter a mobile number and select a country.";
+            errorContainer.classList.remove("d-none");
+        }
+        return;
+    }
+
+    // Call Odoo Backend
+    fetch('/web/mobile/check_user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            params: {
+                country_id: countryIdValue,
+                mobile: mobileValue
+            }
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.result && data.result.exists) {
+            // CASE: User exist karta hai
+            if (errorContainer) errorContainer.classList.add("d-none");
+            
+            // Action URL ko clean redirect ke sath update karein
+            mobileForm.action = verifyUrl;
+            mobileForm.submit();
+
+        } else {
+            // CASE: User nahi mila
+            if (errorContainer) {
+                const signUpLinkTag = `<a href='${signUpUrl}' style='font-weight: bold; text-decoration: underline; color: inherit;'>Sign Up</a>`;
+                
+                // Backend se aaye message mein link update karein
+                let msg = data.result ? data.result.message : "User not available. Please " + signUpLinkTag + " to continue.";
+                // Agar message string hai toh link ko replace karein
+                if (typeof msg === 'string') {
+                    msg = msg.replace(/href='\/web\/signup'/g, `href='${signUpUrl}'`);
+                    msg = msg.replace(/href="\/web\/signup"/g, `href="${signUpUrl}"`);
+                }
+
+                errorContainer.innerHTML = msg;
+                errorContainer.classList.remove("d-none");
+            }
+
+            // Bottom Sign Up link update karein
+            if (signupLink) {
+                signupLink.href = signUpUrl;
+                signupLink.classList.remove("d-none");
+            }
+            if (orSeparator) orSeparator.classList.remove("d-none");
+        }
+    })
+    .catch(err => {
+        console.error("Verification Error:", err);
+    });
+});
+}
+                        
+
+
+
+                    });
+                    // ]]>
+                </script>
+            </xpath>
+        </t>
+    </template>
+
+
+    <template id="mobile_forgot_password_template" name="Mobile Forgot Password">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+
+                                <h4 class="text-center mb-3">
+                                    Forgot Password ?
+                                </h4>
+
+
+                                <!-- Error Message -->
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+
+                                <!-- OTP Form -->
+                                <form action="/web/mobile/confirm" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <div class="mb-3">
+                                        <label for="mobile" class="form-label">Mobile Number</label>
+                                        <input
+                                            type="text"
+                                            id="mobile"
+                                            name="mobile"
+                                            class="form-control"
+                                            placeholder="Mobile number"
+                                            maxlength="20"
+                                            required="required"
+                                        />
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            Confirm
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            <a class="btn btn-link btn-xl" tabindex="1" t-attf-href="/web/mobile-login">Back to login page</a>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="mobile_reset_password_template" name="Reset Password">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+
+                                <h4 class="text-center mb-3">
+                                    Reset Password
+                                </h4>
+
+
+                                <!-- Error Message -->
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+
+                                <!-- OTP Form -->
+                                <form action="/web/mobile/reset-password" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">New Password</label>
+                                        <input
+                                            type="text"
+                                            id="password"
+                                            name="password"
+                                            class="form-control"
+                                            placeholder="Password"
+                                            required="required"
+                                        />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                                        <input
+                                            type="text"
+                                            id="confirm_password"
+                                            name="confirm_password"
+                                            class="form-control"
+                                            placeholder="Confirm Password"
+                                            required="required"
+                                        />
+                                        
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-link btn-xl" tabindex="1" t-attf-href="/web/mobile-login">Back to login page</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
